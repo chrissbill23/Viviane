@@ -1,0 +1,1 @@
+{"version":3,"file":"VBaseException.js","sourceRoot":"","sources":["VBaseException.ts"],"names":[],"mappings":";;AAAA,oBAAqC,SAAQ,KAAK;IAE9C,YAAY,IAAY;QACpB,KAAK,CAAC,IAAI,CAAC,CAAC;QACZ,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACrB,CAAC;IAES,WAAW;QACjB,MAAM,CAAC,IAAI,CAAC,IAAI,CAAC;IACrB,CAAC;CACJ;AAVD,wCAUC"}
