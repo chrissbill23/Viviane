@@ -66,7 +66,11 @@ class VMongoDBService {
     }
     findAll(query) {
         return new Promise((resolve, reject) => {
-            reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                this.model.aggregate(query.getQuery()).then((datas) => {
+                    return resolve(datas);
+                });
+            });
         });
     }
     addOne(query) {

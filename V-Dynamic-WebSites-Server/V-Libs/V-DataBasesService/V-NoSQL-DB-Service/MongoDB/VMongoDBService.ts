@@ -1,5 +1,8 @@
 import {VNoSQLReadServiceInterface} from "../VNoSQLReadServiceInterface";
-import {VDBReadDataNotFoundException} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
+import {
+    VDBInternalError,
+    VDBReadDataNotFoundException
+} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
 import {VNoSQLWriteUpdateServiceInterface} from "../VNoSQLWriteUpdateServiceInterface";
 import {WriteUpdateObjectQueryInterface} from "../../QueryObject/WriteUpdateObjectQueryInterface";
 import {VDataBaseException} from "../../../V-Exceptions/V-DBExecptions/VDataBaseException";
@@ -81,7 +84,11 @@ export class VMongoDBService implements VNoSQLReadServiceInterface,
     }
     public findAll(query: MongoReadQueryObjectInterface): Promise<VDBMongoDocumentInterface[]> {
         return new Promise((resolve, reject) => {
-           reject(new VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                this.model.aggregate(query.getQuery()).then((datas) => {
+                    return resolve(datas);
+                });
+            });
         });
     }
     public addOne(query: WriteUpdateObjectQueryInterface): Promise<VDBMongoDocumentInterface> {
