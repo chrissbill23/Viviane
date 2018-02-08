@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const VBaseException_1 = require("../VBaseException");
-class VDBReadDataNotFoundException extends VBaseException_1.VBaseException {
+const VDataBaseException_1 = require("./VDataBaseException");
+class VDBReadDataNotFoundException extends VDataBaseException_1.VDataBaseException {
     constructor(message) {
         super(message);
     }
@@ -10,7 +10,7 @@ class VDBReadDataNotFoundException extends VBaseException_1.VBaseException {
     }
 }
 exports.VDBReadDataNotFoundException = VDBReadDataNotFoundException;
-class VDBReadAccessDeniedException extends VBaseException_1.VBaseException {
+class VDBReadAccessDeniedException extends VDataBaseException_1.VDataBaseException {
     constructor(message) {
         super(message);
     }
@@ -19,7 +19,7 @@ class VDBReadAccessDeniedException extends VBaseException_1.VBaseException {
     }
 }
 exports.VDBReadAccessDeniedException = VDBReadAccessDeniedException;
-class VDBInternalError extends VBaseException_1.VBaseException {
+class VDBInternalError extends VDataBaseException_1.VDataBaseException {
     constructor(message) {
         super(message);
     }

@@ -1,4 +1,4 @@
 export interface ReadQueryObjectInterface {
-    selectAttributesOfData(...args: string[]): ReadQueryObjectInterface;
+    selectAttributes(...args: string[]): this;
     getQuery(): any;
 }

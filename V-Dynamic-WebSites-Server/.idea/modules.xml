@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../V-Dynamic-WebSites/.idea/Viviane.iml" filepath="$PROJECT_DIR$/../V-Dynamic-WebSites/.idea/Viviane.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/V-Dynamic-WebSites-Server.iml" filepath="$PROJECT_DIR$/.idea/V-Dynamic-WebSites-Server.iml" />
     </modules>
   </component>
 </project>

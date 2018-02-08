@@ -1,6 +1,6 @@
-import {VBaseException} from "../VBaseException";
+import {VDataBaseException} from "./VDataBaseException";
 
-export class VDBReadDataNotFoundException extends VBaseException {
+export class VDBReadDataNotFoundException extends VDataBaseException {
     constructor(message) {
         super(message);
     }
@@ -8,7 +8,7 @@ export class VDBReadDataNotFoundException extends VBaseException {
         return "Data requested not found: " + this.giveMessage();
     }
 }
-export class VDBReadAccessDeniedException extends VBaseException {
+export class VDBReadAccessDeniedException extends VDataBaseException {
     constructor(message) {
         super(message);
     }
@@ -16,7 +16,7 @@ export class VDBReadAccessDeniedException extends VBaseException {
         return "You are not allowed to have this data";
     }
 }
-export class VDBInternalError extends VBaseException {
+export class VDBInternalError extends VDataBaseException {
     constructor(message) {
         super(message);
     }

@@ -1,0 +1,1 @@
+{"version":3,"file":"VDataBaseException.js","sourceRoot":"","sources":["VDataBaseException.ts"],"names":[],"mappings":";;AAAA,sDAAiD;AAEjD,wBAAgC,SAAQ,+BAAc;IAClD,YAAY,OAAO;QACf,KAAK,CAAC,OAAO,CAAC,CAAC;IACnB,CAAC;IACM,mBAAmB;QACtB,MAAM,CAAC,uBAAuB,GAAG,IAAI,CAAC,WAAW,EAAE,CAAC;IACxD,CAAC;CACJ;AAPD,gDAOC"}

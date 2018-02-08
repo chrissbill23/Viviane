@@ -3,21 +3,26 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "dev": "nodemon server.js",
+    "start": "node ./V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/test"
   },
   "devDependencies": {
     "nodemon": "^1.12.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.3.0",
+    "tslint-config-airbnb": "^5.6.0",
     "typescript": "^2.5.3"
   },
   "dependencies": {
+    "@types/mongodb": "^3.0.5",
+    "@types/mongoose": "^5.0.1",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "es2017": "0.0.0",
     "express": "~4.15.5",
     "jade": "~1.11.0",
+    "mongoose": "^5.0.3",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5"
   }
