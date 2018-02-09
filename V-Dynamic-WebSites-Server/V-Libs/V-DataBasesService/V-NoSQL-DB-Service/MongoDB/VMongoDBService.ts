@@ -1,14 +1,11 @@
 import {VNoSQLReadServiceInterface} from "../VNoSQLReadServiceInterface";
-import {
-    VDBInternalError,
-    VDBReadDataNotFoundException
-} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
+import {VDBReadDataNotFoundException} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
 import {VNoSQLWriteUpdateServiceInterface} from "../VNoSQLWriteUpdateServiceInterface";
-import {WriteUpdateObjectQueryInterface} from "../../QueryObject/WriteUpdateObjectQueryInterface";
 import {VDataBaseException} from "../../../V-Exceptions/V-DBExecptions/VDataBaseException";
 import {connect, Mongoose, model, Schema} from "mongoose";
 import {VDBMongoDocumentInterface} from "./VDBMongoDocumentInterface";
 import {MongoReadQueryObjectInterface} from "./MongoReadQueryObjectInterface";
+import {MongoWriteUpdateQueryObject} from "./MongoWriteUpdateQueryObject";
 export interface Configuration {
     host?: string;
     port?: number;
@@ -17,7 +14,7 @@ export interface Configuration {
     password?: string;
     // options?: MongoDB.MongoClientOptions;
 }
-export class VMongoDBService implements VNoSQLReadServiceInterface,
+export class VMongoDBService<T extends VDBMongoDocumentInterface> implements VNoSQLReadServiceInterface,
     VNoSQLWriteUpdateServiceInterface {
     private model;
     private linKtoDB: string;
@@ -67,10 +64,10 @@ export class VMongoDBService implements VNoSQLReadServiceInterface,
             }
         });
     }
-    public findById(id: string): Promise<VDBMongoDocumentInterface> {
+    public findById(id: string): Promise<T> {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
-            this.model.findOne({_id: id}).then((data: VDBMongoDocumentInterface) => {
+            this.model.findOne({_id: id}).then((data: T) => {
                 if (data != null) {
                     return resolve(data);
                 } else {
@@ -82,20 +79,20 @@ export class VMongoDBService implements VNoSQLReadServiceInterface,
         });
         });
     }
-    public findAll(query: MongoReadQueryObjectInterface): Promise<VDBMongoDocumentInterface[]> {
+    public findAll(query: MongoReadQueryObjectInterface): Promise<T[]> {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
-                this.model.aggregate(query.getQuery()).then((datas) => {
+                this.model.aggregate(query.getQuery()).then((datas: T[]) => {
                     return resolve(datas);
                 });
             });
         });
     }
-    public addOne(query: WriteUpdateObjectQueryInterface): Promise<VDBMongoDocumentInterface> {
+    public addOne(query: MongoWriteUpdateQueryObject<T>): Promise<T> {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
                 const obj = new this.model(query.getWriteQuery());
-                obj.save().then((data: VDBMongoDocumentInterface) => {
+                obj.save().then((data: T) => {
                     return resolve(data);
                 }, (err) => {
                     return reject(new VDBReadDataNotFoundException(err.toString()));
@@ -103,19 +100,39 @@ export class VMongoDBService implements VNoSQLReadServiceInterface,
             });
         });
     }
-    public addAll(...query: WriteUpdateObjectQueryInterface[]): Promise<VDBMongoDocumentInterface[]> {
+    public addAll(query: MongoWriteUpdateQueryObject<T>): Promise<T[]> {
         return new Promise((resolve, reject) => {
-            reject(new VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                this.model.insertMany(query.getWriteQuery()).then((data: T[]) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
-    public updateOne(query: WriteUpdateObjectQueryInterface): Promise<VDBMongoDocumentInterface> {
+    public updateOne(query: MongoWriteUpdateQueryObject<T>): Promise<T> {
         return new Promise((resolve, reject) => {
-            reject(new VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                const query2 = query.getUpdateQuery().filter;
+                this.model.updateOne(query2.filter, query2.values).then((data: T) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
-    public updateAll(...query: WriteUpdateObjectQueryInterface[]): Promise<VDBMongoDocumentInterface[]> {
+    public updateAll(query: MongoWriteUpdateQueryObject<T>): Promise<T[]> {
         return new Promise((resolve, reject) => {
-            reject(new VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                const query2 = query.getUpdateQuery().filter;
+                this.model.updateMany(query2.filter, query2.values).then((data: T[]) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
     public isConnected(): boolean {

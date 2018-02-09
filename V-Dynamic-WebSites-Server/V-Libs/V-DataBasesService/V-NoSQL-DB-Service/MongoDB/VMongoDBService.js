@@ -85,19 +85,39 @@ class VMongoDBService {
             });
         });
     }
-    addAll(...query) {
+    addAll(query) {
         return new Promise((resolve, reject) => {
-            reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                this.model.insertMany(query.getWriteQuery()).then((data) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
     updateOne(query) {
         return new Promise((resolve, reject) => {
-            reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                const query2 = query.getUpdateQuery().filter;
+                this.model.updateOne(query2.filter, query2.values).then((data) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
-    updateAll(...query) {
+    updateAll(query) {
         return new Promise((resolve, reject) => {
-            reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException("not found"));
+            return this.checkIfConnectedAndDo(() => {
+                const query2 = query.getUpdateQuery().filter;
+                this.model.updateMany(query2.filter, query2.values).then((data) => {
+                    return resolve(data);
+                }, (err) => {
+                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                });
+            });
         });
     }
     isConnected() {

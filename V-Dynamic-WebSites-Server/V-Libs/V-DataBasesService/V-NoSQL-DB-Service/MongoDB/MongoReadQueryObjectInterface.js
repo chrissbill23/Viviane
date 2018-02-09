@@ -31,8 +31,60 @@ class MongoReadQueryObjectInterface {
         }
         return this;
     }
+    limit(max) {
+        if (max < 0) {
+            max = 0;
+        }
+        this.agregateQuery.push({ $limit: max });
+        return this;
+    }
+    skip(max) {
+        if (max < 0) {
+            max = 0;
+        }
+        this.agregateQuery.push({ $skip: max });
+        return this;
+    }
+    sort(listOfSortedAttr) {
+        for (const key in listOfSortedAttr) {
+            if (this[key] != undefined && listOfSortedAttr[key] != -1 && listOfSortedAttr[key] != 1) {
+                delete listOfSortedAttr[key];
+            }
+        }
+        this.agregateQuery.push({ $sort: listOfSortedAttr });
+        return this;
+    }
+    lookup(otherCollection, localField, foreignField, arrayName) {
+        const obj = {
+            $lookup: {
+                from: otherCollection,
+                as: arrayName,
+                localField,
+                foreignField,
+            },
+        };
+        this.agregateQuery.push(obj);
+        return this;
+    }
+    unwind(arrayName) {
+        this.agregateQuery.push({
+            $unwind: arrayName,
+        });
+        return this;
+    }
     getQuery() {
         return this.agregateQuery;
+    }
+    groupBy(groupList) {
+        this.agregateQuery.push(groupList);
+        return this;
+    }
+    countDocuments(nameOfResult) {
+        this.agregateQuery.push({ $count: nameOfResult });
+        return this;
+    }
+    setId(id) {
+        this._id = id;
     }
 }
 exports.MongoReadQueryObjectInterface = MongoReadQueryObjectInterface;

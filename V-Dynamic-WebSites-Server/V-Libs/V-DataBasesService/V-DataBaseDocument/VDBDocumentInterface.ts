@@ -1,3 +1,3 @@
 export interface VDBDocumentInterface {
-    getData(): any;
+    _id: string;
 }
