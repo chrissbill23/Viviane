@@ -6,8 +6,8 @@ function giveSchema() {
     schema.defineNewProperty({ name: String })
         .defineNewProperty({ surname: String })
         .defineNewProperty({ nickname: String })
-        .defineNewMethod("showName", function () {
-        return this.name;
+        .defineNewMethod("getData", function () {
+        return this;
     }).addTimeStamp();
     return schema.giveSchema();
 }

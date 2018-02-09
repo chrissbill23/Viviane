@@ -1,6 +1,7 @@
 import {VDBDocumentInterface} from "../../V-DataBaseDocument/VDBDocumentInterface";
 
 export interface VDBMongoDocumentInterface extends VDBDocumentInterface {
-    cratedAt: Date;
+    createdAt: Date;
     updatedAt: Date;
+    getModel(): any;
 }

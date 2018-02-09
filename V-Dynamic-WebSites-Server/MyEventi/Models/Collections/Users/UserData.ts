@@ -19,15 +19,14 @@ export interface UserData extends VDBMongoDocumentInterface {
     follows?: UserData[];
     news?: NewsData[];
     createdEvents?: EventData[];
-    showName(): string;
 }
 export function giveSchema(): Schema {
     const schema = new MongooseSchema();
     schema.defineNewProperty({name: String})
         .defineNewProperty({surname: String})
         .defineNewProperty({nickname: String})
-        .defineNewMethod("showName", function() {
-            return this.name;
+        .defineNewMethod("getData", function() {
+            return this;
         }).addTimeStamp();
     return schema.giveSchema();
 }
