@@ -4,11 +4,10 @@ const V_DB_Read_Exceptions_1 = require("../../../V-Exceptions/V-DBExecptions/V-D
 const VDataBaseException_1 = require("../../../V-Exceptions/V-DBExecptions/VDataBaseException");
 const mongoose_1 = require("mongoose");
 class VMongoDBService {
-    constructor(dataconnection, collectionName, schema) {
+    constructor(dataconnection, model) {
         this.isconnected = false;
         this.linKtoDB = VMongoDBService.buildConnectionString(dataconnection);
-        this.collectionName = collectionName;
-        this.schema = schema;
+        this.model = model;
     }
     static buildConnectionString(obj) {
         let str = 'mongodb://';
@@ -26,7 +25,6 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             mongoose_1.connect(this.linKtoDB).then((value) => {
                 this.mongoose = value;
-                this.model = mongoose_1.model(this.collectionName, this.schema);
                 this.isconnected = true;
                 return resolve(value);
             }, (reason) => {

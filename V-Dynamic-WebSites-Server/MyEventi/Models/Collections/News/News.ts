@@ -1,8 +1,8 @@
 import {Configuration, VMongoDBService} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService";
-import {UserData} from "./UserData";
+import {NewsData} from "./NewsData";
 
-export class Users extends VMongoDBService<UserData> {
+export class News extends VMongoDBService<NewsData> {
     constructor(databaseconnection: Configuration) {
-        super(databaseconnection, new UserData().getModel());
+        super(databaseconnection, new NewsData().getModel());
     }
 }

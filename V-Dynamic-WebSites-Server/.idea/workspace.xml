@@ -17,8 +17,8 @@
       <file leaf-file-name="VMongoDBService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1239">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="-131">
+              <caret line="121" column="37" lean-forward="false" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -26,21 +26,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventData.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.ts">
+      <file leaf-file-name="VNoSQLWriteUpdateServiceInterface.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLWriteUpdateServiceInterface.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#95#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/Users.ts">
+      <file leaf-file-name="VNoSQLReadServiceInterface.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLReadServiceInterface.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="News.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/News/News.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#128#0" expanded="true" />
               </folding>
@@ -48,24 +62,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VDBMongoDocumentInterface.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.ts">
+      <file leaf-file-name="NewsData.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/News/NewsData.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="19" />
+            <state relative-caret-position="210">
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#116#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongoWriteUpdateQueryObject.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="67" lean-forward="false" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#98#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongoReadQueryObjectInterface.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1848">
+              <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.ts">
+      <file leaf-file-name="VDBMongoDocument.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#86#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,32 +109,18 @@
       <file leaf-file-name="UserData.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#133#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="126">
+              <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MongooseSchema.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema.ts">
+      <file leaf-file-name="VGoose.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#80#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@types/mongoose/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="788" column="12" lean-forward="false" selection-start-line="788" selection-start-column="12" selection-end-line="788" selection-end-column="12" />
+            <state relative-caret-position="0">
+              <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -116,6 +138,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>stringType</find>
+      <find>path</find>
+      <find>paths</find>
+      <find>prop.ref()</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -130,18 +155,23 @@
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/test.ts" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/QueryObject/ReadQueryObjectInterface.ts" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.ts" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLWriteUpdateServiceInterface.ts" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/Users.ts" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/NewsEventi/NewsData.ts" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.ts" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.ts" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-DataBaseDocument/VDBDocumentInterface.ts" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.ts" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.ts" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-DataBaseDocument/VDBDocumentInterface.ts" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/NewsEventi/NewsData.ts" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/Users.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/Events.ts" />
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/News/NewsData.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.ts" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.ts" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose.ts" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/News/News.ts" />
       </list>
     </option>
   </component>
@@ -177,7 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,42 +235,20 @@
             <path>
               <item name="V-Dynamic-WebSites-Server" type="b2602c69:ProjectViewProjectNode" />
               <item name="V-Dynamic-WebSites-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="MyEventi" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-              <item name="Collections" type="462c0819:PsiDirectoryNode" />
-              <item name="Users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="V-Dynamic-WebSites-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="V-Dynamic-WebSites-Server" type="462c0819:PsiDirectoryNode" />
               <item name="V-Libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="V-Dynamic-WebSites-Server" type="b2602c69:ProjectViewProjectNode" />
               <item name="V-Dynamic-WebSites-Server" type="462c0819:PsiDirectoryNode" />
               <item name="V-Libs" type="462c0819:PsiDirectoryNode" />
-              <item name="V-DataBasesService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="V-Dynamic-WebSites-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="V-Dynamic-WebSites-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="V-Libs" type="462c0819:PsiDirectoryNode" />
-              <item name="V-DataBasesService" type="462c0819:PsiDirectoryNode" />
-              <item name="V-NoSQL-DB-Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="V-Dynamic-WebSites-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="V-Dynamic-WebSites-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="V-Libs" type="462c0819:PsiDirectoryNode" />
-              <item name="V-DataBasesService" type="462c0819:PsiDirectoryNode" />
-              <item name="V-NoSQL-DB-Service" type="462c0819:PsiDirectoryNode" />
-              <item name="MongoDB" type="462c0819:PsiDirectoryNode" />
+              <item name="V-Exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,33 +293,33 @@
       <updated>1518103677426</updated>
       <workItem from="1518103679939" duration="22269000" />
       <workItem from="1518173544526" duration="33449000" />
+      <workItem from="1518264771742" duration="24155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55718000" />
+    <option name="totallyTimeSpent" value="79873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -334,8 +341,6 @@
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLWriteUpdateServiceInterface.js.map" />
         <option value="$PROJECT_DIR$/V-Libs/V-Exceptions/V-DBExecptions/VDataBaseException.js.map" />
         <option value="$PROJECT_DIR$/V-Libs/V-Exceptions/V-DBExecptions/VDataBaseException.js" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.js.map" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.js" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.js" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.js.map" />
         <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.js.map" />
@@ -344,12 +349,14 @@
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/Users.js.map" />
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.js" />
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.js.map" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema.js.map" />
-        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema.js" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/NewsEventi/NewsData.js" />
-        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/NewsEventi/NewsData.js.map" />
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.js.map" />
         <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.js" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose.js.map" />
+        <option value="$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose.js" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/News/News.js.map" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/News/News.js" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/Events.js.map" />
+        <option value="$PROJECT_DIR$/MyEventi/Models/Collections/Events/Events.js" />
       </list>
     </option>
   </component>
@@ -357,10 +364,70 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/MyEventi/Models/Collections/News/NewsData.ts</url>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/Users.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchemaStream.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/mongoose/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16464">
+          <caret line="788" column="12" lean-forward="false" selection-start-line="788" selection-start-column="12" selection-end-line="788" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -387,7 +454,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.ts">
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
@@ -415,7 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -524,55 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLReadServiceInterface.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/QueryObject/WriteUpdateObjectQueryInterface.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLWriteUpdateServiceInterface.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#95#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/NewsEventi/NewsData.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -588,34 +609,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tslint-config-airbnb/sample/node_modules/tslint-config-airbnb/sample/node_modules/typescript/lib/protocol.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1400">
+          <caret line="2065" column="8" lean-forward="false" selection-start-line="2065" selection-start-column="8" selection-end-line="2065" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es6.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="262" column="4" lean-forward="false" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchemaStream.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#0#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-DataBaseDocument/VDBDocumentInterface.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.ts">
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/mongoose/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="203">
+          <caret line="2366" column="23" lean-forward="false" selection-start-line="2366" selection-start-column="23" selection-end-line="2366" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -630,50 +672,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts">
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1239">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        <state relative-caret-position="84">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Events/Events.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#0#73#0" expanded="true" />
+            <element signature="e#0#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Events/EventData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#115#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/UserData.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/mongoose/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="788" column="12" lean-forward="false" selection-start-line="788" selection-start-column="12" selection-end-line="788" selection-end-column="12" />
+        <state relative-caret-position="126">
+          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema.ts">
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryObjectInterface.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        <state relative-caret-position="1848">
+          <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoWriteUpdateQueryObject.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="67" lean-forward="false" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
           <folding>
-            <element signature="e#0#80#0" expanded="true" />
+            <element signature="e#0#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/Users/test.ts">
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="336">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VMongoDBService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="121" column="37" lean-forward="false" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
           <folding>
-            <element signature="e#0#86#0" expanded="true" />
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLWriteUpdateServiceInterface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V-Libs/V-DataBasesService/V-NoSQL-DB-Service/VNoSQLReadServiceInterface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/News/News.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyEventi/Models/Collections/News/NewsData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#116#0" expanded="true" />
           </folding>
         </state>
       </provider>

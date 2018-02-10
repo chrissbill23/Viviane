@@ -2,8 +2,8 @@ import {VNoSQLReadServiceInterface} from "../VNoSQLReadServiceInterface";
 import {VDBReadDataNotFoundException} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
 import {VNoSQLWriteUpdateServiceInterface} from "../VNoSQLWriteUpdateServiceInterface";
 import {VDataBaseException} from "../../../V-Exceptions/V-DBExecptions/VDataBaseException";
-import {connect, Mongoose, model, Schema} from "mongoose";
-import {VDBMongoDocumentInterface} from "./VDBMongoDocumentInterface";
+import {connect, Model, Mongoose, Schema} from "mongoose";
+import {VDBMongoDocument} from "./VDBMongoDocument";
 import {MongoReadQueryObjectInterface} from "./MongoReadQueryObjectInterface";
 import {MongoWriteUpdateQueryObject} from "./MongoWriteUpdateQueryObject";
 export interface Configuration {
@@ -14,13 +14,11 @@ export interface Configuration {
     password?: string;
     // options?: MongoDB.MongoClientOptions;
 }
-export class VMongoDBService<T extends VDBMongoDocumentInterface> implements VNoSQLReadServiceInterface,
+export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadServiceInterface,
     VNoSQLWriteUpdateServiceInterface {
-    private model;
     private linKtoDB: string;
+    private model: Model<any>;
     private mongoose: Mongoose;
-    private collectionName: string;
-    private schema: Schema;
     private isconnected: boolean = false;
     private static buildConnectionString(obj: Configuration): string {
         let str: string  = 'mongodb://';
@@ -34,16 +32,14 @@ export class VMongoDBService<T extends VDBMongoDocumentInterface> implements VNo
         str = str + obj.host + ':' + obj.port + '/' + obj.database;
         return str;
     }
-    constructor(dataconnection: Configuration, collectionName: string, schema: Schema) {
+    constructor(dataconnection: Configuration, model: Model<any>) {
         this.linKtoDB = VMongoDBService.buildConnectionString(dataconnection);
-        this.collectionName = collectionName;
-        this.schema = schema;
+        this.model = model;
     }
     public connect(): Promise<any> {
        return new Promise((resolve, reject) => {
            connect(this.linKtoDB).then((value) => {
                this.mongoose = value;
-               this.model = model(this.collectionName, this.schema);
                this.isconnected = true;
                return resolve(value);
            }, (reason) => {

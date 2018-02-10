@@ -1,1 +1,1 @@
-{"version":3,"file":"EventData.js","sourceRoot":"","sources":["EventData.ts"],"names":[],"mappings":""}
+{"version":3,"file":"EventData.js","sourceRoot":"","sources":["EventData.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,wHAAmH;AACnH,oGAA2G;AAG3G,IAAa,SAAS,GAAtB,eAAuB,SAAQ,mCAAgB;IAGpC,OAAO;QACV,MAAM,CAAC,IAAI,CAAC,aAAa,CAAC;IAC9B,CAAC;CACJ,CAAA;AAJG;IADC,kBAAS,CAAC,EAAC,IAAI,EAAE,IAAI,EAAC,CAAC;8BACF,IAAI;gDAAC;AAFlB,SAAS;IADrB,gBAAO,EAAE;GACG,SAAS,CAMrB;AANY,8BAAS"}

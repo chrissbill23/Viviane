@@ -1,7 +1,7 @@
 import {WriteUpdateObjectQueryInterface} from "../../QueryObject/WriteUpdateObjectQueryInterface";
-import {VDBMongoDocumentInterface} from "./VDBMongoDocumentInterface";
+import {VDBMongoDocument} from "./VDBMongoDocument";
 
-export class MongoWriteUpdateQueryObject<T extends VDBMongoDocumentInterface> implements WriteUpdateObjectQueryInterface {
+export class MongoWriteUpdateQueryObject<T extends VDBMongoDocument> implements WriteUpdateObjectQueryInterface {
 
     private entireQuery = {filter: {}, values: {}};
     constructor(values: any) {

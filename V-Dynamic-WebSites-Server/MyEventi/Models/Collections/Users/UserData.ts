@@ -1,32 +1,53 @@
-import {VDBMongoDocumentInterface} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface";
-import {Schema} from "mongoose";
-import {NewsData} from "../NewsEventi/NewsData";
+import {VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument";
+import {NewsData} from "../News/NewsData";
 import {EventData} from "../Events/EventData";
-import {MongooseSchema} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongooseSchema";
+import {
+    VArrayProperty,
+    VGooseTypes, VProperty,
+    VRefProperty, VSchema,
+} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose";
 
-export interface UserData extends VDBMongoDocumentInterface {
-    name?: string;
-    surname?: string;
-    nickname?: string;
-    password?: string;
-    email?: string;
-    isPremium?: boolean | false;
-    isAdmin?: boolean | false;
-    lastLogin?: Date;
-    isBlocked?: boolean | false;
-    reasonBlocked?: string | '';
-    followers?: UserData[];
-    follows?: UserData[];
-    news?: NewsData[];
-    createdEvents?: EventData[];
-}
-export function giveSchema(): Schema {
-    const schema = new MongooseSchema();
-    schema.defineNewProperty({name: String})
-        .defineNewProperty({surname: String})
-        .defineNewProperty({nickname: String})
-        .defineNewMethod("getData", function() {
-            return this;
-        }).addTimeStamp();
-    return schema.giveSchema();
+@VSchema()
+export class UserData extends VDBMongoDocument {
+    @VProperty({type: String})
+    public name?: string;
+
+    @VProperty({type: String})
+    public surname?: string;
+
+    @VProperty({type: String})
+    public nickname?: string;
+
+    @VProperty({type: String})
+    public password?: string;
+
+    @VProperty({type: String})
+    public email?: string;
+
+    @VProperty({type: Boolean, default: false})
+    public isPremium?: boolean;
+
+    @VProperty({type: Boolean, default: false})
+    public isAdmin?: boolean;
+
+    @VProperty({type: Date})
+    public lastLogin?: Date;
+
+    @VProperty({type: Boolean, default: false})
+    public isBlocked?: boolean;
+
+    @VProperty({type: String, default: ''})
+    public reasonBlocked?: string;
+
+    @VArrayProperty({type: VGooseTypes.ObjectId, ref: UserData})
+    public followers?: UserData[];
+
+    @VArrayProperty({type: VGooseTypes.ObjectId, ref: UserData})
+    public follows?: UserData[];
+
+    @VArrayProperty({type: VGooseTypes.ObjectId, ref: NewsData})
+    public news?: NewsData[];
+
+    @VArrayProperty({type: VGooseTypes.ObjectId, ref: EventData})
+    public createdEvents?: EventData[];
 }

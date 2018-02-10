@@ -11,17 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
-let EventData = class EventData extends VDBMongoDocument_1.VDBMongoDocument {
+let NewsData = class NewsData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
-        return this.dateAndTimeEv;
+        return this.content;
     }
 };
 __decorate([
-    VGoose_1.VProperty({ type: Date }),
-    __metadata("design:type", Date)
-], EventData.prototype, "dateAndTimeEv", void 0);
-EventData = __decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], NewsData.prototype, "content", void 0);
+NewsData = __decorate([
     VGoose_1.VSchema()
-], EventData);
-exports.EventData = EventData;
-//# sourceMappingURL=EventData.js.map
+], NewsData);
+exports.NewsData = NewsData;
+//# sourceMappingURL=NewsData.js.map

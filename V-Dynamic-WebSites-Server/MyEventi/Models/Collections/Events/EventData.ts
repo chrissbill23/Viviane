@@ -1,5 +1,11 @@
-import {VDBMongoDocumentInterface} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocumentInterface";
+import {VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument";
+import {VProperty, VSchema} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose";
 
-export interface EventData extends VDBMongoDocumentInterface {
-    dateAndTimeEv: Date;
+@VSchema()
+export class EventData extends VDBMongoDocument {
+    @VProperty({type: Date})
+    public dateAndTimeEv: Date;
+    public getData(): any {
+        return this.dateAndTimeEv;
+    }
 }
