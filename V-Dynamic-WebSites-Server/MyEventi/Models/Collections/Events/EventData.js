@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
+const TypeEventData_1 = require("./TypeEventData");
+const CategEventData_1 = require("./CategEventData");
 let EventData = class EventData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
         return this.dateAndTimeEv;
@@ -20,6 +22,58 @@ __decorate([
     VGoose_1.VProperty({ type: Date }),
     __metadata("design:type", Date)
 ], EventData.prototype, "dateAndTimeEv", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], EventData.prototype, "createdBy", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], EventData.prototype, "title", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], EventData.prototype, "introduction", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], EventData.prototype, "fullDescription", void 0);
+__decorate([
+    VGoose_1.VRefProperty({ ref: TypeEventData_1.TypeEventData }),
+    __metadata("design:type", String)
+], EventData.prototype, "type", void 0);
+__decorate([
+    VGoose_1.VRefProperty({ ref: CategEventData_1.CategEventData }),
+    __metadata("design:type", String)
+], EventData.prototype, "category", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String, uppercase: true }),
+    __metadata("design:type", String)
+], EventData.prototype, "city", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String }),
+    __metadata("design:type", String)
+], EventData.prototype, "tags", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], EventData.prototype, "block", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: String, default: '' }),
+    __metadata("design:type", String)
+], EventData.prototype, "reasonBlock", void 0);
+__decorate([
+    VGoose_1.VArrayProperty({ type: "string" /* String */ }),
+    __metadata("design:type", Array)
+], EventData.prototype, "fotos", void 0);
+__decorate([
+    VGoose_1.VArrayProperty({ type: "string" /* String */ }),
+    __metadata("design:type", Array)
+], EventData.prototype, "partecipants", void 0);
+__decorate([
+    VGoose_1.VProperty({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], EventData.prototype, "foreground", void 0);
 EventData = __decorate([
     VGoose_1.VSchema()
 ], EventData);

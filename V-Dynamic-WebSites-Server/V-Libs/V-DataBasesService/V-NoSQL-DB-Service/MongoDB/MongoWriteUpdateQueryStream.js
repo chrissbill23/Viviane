@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class MongoWriteUpdateQueryObject {
+class MongoWriteUpdateQueryStream {
     constructor(values) {
-        this.entireQuery = { filter: {}, values: {} };
+        this.entireQuery = { filter: {}, values: {}, options: { runValidator: true } };
+        this.validateOnUpdate = true;
         this.entireQuery.values = values;
     }
     getUpdateQuery() {
+        this.entireQuery.options.runValidator = this.validateOnUpdate;
         return this.entireQuery;
     }
     getWriteQuery() {
@@ -19,6 +21,10 @@ class MongoWriteUpdateQueryObject {
         this.entireQuery.values = value;
         return this;
     }
+    disableValidateOnUpdate() {
+        this.validateOnUpdate = false;
+        return this;
+    }
 }
-exports.MongoWriteUpdateQueryObject = MongoWriteUpdateQueryObject;
-//# sourceMappingURL=MongoWriteUpdateQueryObject.js.map
+exports.MongoWriteUpdateQueryStream = MongoWriteUpdateQueryStream;
+//# sourceMappingURL=MongoWriteUpdateQueryStream.js.map

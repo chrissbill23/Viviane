@@ -4,10 +4,10 @@ const V_DB_Read_Exceptions_1 = require("../../../V-Exceptions/V-DBExecptions/V-D
 const VDataBaseException_1 = require("../../../V-Exceptions/V-DBExecptions/VDataBaseException");
 const mongoose_1 = require("mongoose");
 class VMongoDBService {
-    constructor(dataconnection, model) {
+    constructor(dataconnection, Class) {
         this.isconnected = false;
         this.linKtoDB = VMongoDBService.buildConnectionString(dataconnection);
-        this.model = model;
+        this.model = new Class().getModel();
     }
     static buildConnectionString(obj) {
         let str = 'mongodb://';
@@ -26,9 +26,9 @@ class VMongoDBService {
             mongoose_1.connect(this.linKtoDB).then((value) => {
                 this.mongoose = value;
                 this.isconnected = true;
-                return resolve(value);
+                resolve(true);
             }, (reason) => {
-                return reject(new VDataBaseException_1.VDataBaseException(reason.toString()));
+                reject(new VDataBaseException_1.VDataBaseException(reason.toString()));
             });
         });
     }
@@ -36,13 +36,13 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             if (this.isConnected()) {
                 this.mongoose.connection.close().then(() => {
-                    return resolve(true);
+                    resolve(true);
                 }, (err) => {
-                    return reject(err);
+                    reject(err);
                 });
             }
             else {
-                return reject("Trying to disconnect from an unconnected database");
+                reject("Trying to disconnect from an unconnected database");
             }
         });
     }
@@ -51,13 +51,13 @@ class VMongoDBService {
             return this.checkIfConnectedAndDo(() => {
                 this.model.findOne({ _id: id }).then((data) => {
                     if (data != null) {
-                        return resolve(data);
+                        resolve(data);
                     }
                     else {
                         reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException("not found"));
                     }
                 }, (err) => {
-                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                    reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
                 });
             });
         });
@@ -66,7 +66,7 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
                 this.model.aggregate(query.getQuery()).then((datas) => {
-                    return resolve(datas);
+                    resolve(datas);
                 });
             });
         });
@@ -76,9 +76,9 @@ class VMongoDBService {
             return this.checkIfConnectedAndDo(() => {
                 const obj = new this.model(query.getWriteQuery());
                 obj.save().then((data) => {
-                    return resolve(data);
+                    resolve(data);
                 }, (err) => {
-                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                    reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
                 });
             });
         });
@@ -87,9 +87,9 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
                 this.model.insertMany(query.getWriteQuery()).then((data) => {
-                    return resolve(data);
+                    resolve(data);
                 }, (err) => {
-                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                    reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
                 });
             });
         });
@@ -98,10 +98,10 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
                 const query2 = query.getUpdateQuery().filter;
-                this.model.updateOne(query2.filter, query2.values).then((data) => {
-                    return resolve(data);
+                this.model.updateOne(query2.filter, query2.values, query2.options).then((data) => {
+                    resolve(data);
                 }, (err) => {
-                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                    reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
                 });
             });
         });
@@ -110,10 +110,10 @@ class VMongoDBService {
         return new Promise((resolve, reject) => {
             return this.checkIfConnectedAndDo(() => {
                 const query2 = query.getUpdateQuery().filter;
-                this.model.updateMany(query2.filter, query2.values).then((data) => {
-                    return resolve(data);
+                this.model.updateMany(query2.filter, query2.values, query2.options).then((data) => {
+                    resolve(data);
                 }, (err) => {
-                    return reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
+                    reject(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err.toString()));
                 });
             });
         });
@@ -121,16 +121,13 @@ class VMongoDBService {
     isConnected() {
         return this.isconnected;
     }
-    giveModel() {
-        return this.model;
-    }
     checkIfConnectedAndDo(doaction) {
         return new Promise((resolve, reject) => {
             if (this.isConnected()) {
                 doaction();
             }
             else {
-                return reject("Could not connect to DataBase");
+                reject("Could not connect to DataBase");
             }
         });
     }

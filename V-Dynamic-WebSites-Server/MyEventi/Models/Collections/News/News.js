@@ -4,7 +4,7 @@ const VMongoDBService_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL
 const NewsData_1 = require("./NewsData");
 class News extends VMongoDBService_1.VMongoDBService {
     constructor(databaseconnection) {
-        super(databaseconnection, new NewsData_1.NewsData().getModel());
+        super(databaseconnection, NewsData_1.NewsData);
     }
 }
 exports.News = News;

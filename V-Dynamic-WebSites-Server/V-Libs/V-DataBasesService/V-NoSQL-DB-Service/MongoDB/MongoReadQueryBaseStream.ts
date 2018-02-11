@@ -1,12 +1,12 @@
 import {ReadQueryObjectInterface} from "../../QueryObject/ReadQueryObjectInterface";
 
-export abstract class MongoReadQueryObjectInterface implements ReadQueryObjectInterface {
+export abstract class MongoReadQueryBaseStream implements ReadQueryObjectInterface {
     private _id: string;
     private agregateQuery: any[];
     protected match(): void {
         const obj = {};
         for (const key in this) {
-            if (this.hasOwnProperty(key) && this[key] != null && typeof this[key] != 'function') {
+            if (this.hasOwnProperty(key) && this[key] != null && this[key] != null && typeof this[key] != 'function') {
                     Object.defineProperty(obj, key, {
                         value: this[key],
                     });

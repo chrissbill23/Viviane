@@ -13,26 +13,28 @@ const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQ
 const NewsData_1 = require("../News/NewsData");
 const EventData_1 = require("../Events/EventData");
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
+const V_Validators_1 = require("../../../../V-Utils/V-Validators/V-Validators");
 let UserData = UserData_1 = class UserData extends VDBMongoDocument_1.VDBMongoDocument {
 };
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.VProperty({ type: String, required: true }),
     __metadata("design:type", String)
 ], UserData.prototype, "name", void 0);
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.VProperty({ type: String, required: true }),
     __metadata("design:type", String)
 ], UserData.prototype, "surname", void 0);
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.VProperty({ type: String, required: true, unique: true }),
     __metadata("design:type", String)
 ], UserData.prototype, "nickname", void 0);
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.VProperty({ type: String, required: true }),
     __metadata("design:type", String)
 ], UserData.prototype, "password", void 0);
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.Validator(V_Validators_1.isEmail, 'Email is not correct'),
+    VGoose_1.VProperty({ type: String, required: true }),
     __metadata("design:type", String)
 ], UserData.prototype, "email", void 0);
 __decorate([

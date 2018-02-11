@@ -11,15 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
+const typeofNews = {
+    type1: 'New Followers',
+    type2: 'New Event',
+    type3: 'New Participants',
+};
 let NewsData = class NewsData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
         return this.content;
     }
 };
 __decorate([
-    VGoose_1.VProperty({ type: String }),
+    VGoose_1.VProperty({ type: String, required: true }),
     __metadata("design:type", String)
 ], NewsData.prototype, "content", void 0);
+__decorate([
+    VGoose_1.VEnum(typeofNews),
+    __metadata("design:type", String)
+], NewsData.prototype, "type", void 0);
 NewsData = __decorate([
     VGoose_1.VSchema()
 ], NewsData);

@@ -26,38 +26,99 @@ function VProperty(prop) {
             target.schema = new mongoose_1.Schema();
         }
         const check = key != 'createdAt' && key != 'updatedAt';
-        if (check && target.schema.path(key) === undefined) {
-            const obj = {};
-            obj[key] = prop;
-            target.schema.add(obj);
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = prop;
+                target.schema.add(obj);
+            }
+            else {
+                target.schema.path(key, prop);
+            }
         }
     };
 }
 exports.VProperty = VProperty;
+function VEnum(Enum, options) {
+    if (typeof Enum != 'object') {
+        throw new Error("Enum property must be of type enum or object");
+    }
+    const value = Object.values(Enum);
+    if (value.length == 0) {
+        throw new Error("Enum property cannot be empty");
+    }
+    return (target, key) => {
+        if (target.schema == undefined) {
+            target.schema = new mongoose_1.Schema();
+        }
+        if (options == undefined) {
+            options = {};
+        }
+        options.type = mongoose_1.Schema.Types.Mixed;
+        const check = key != 'createdAt' && key != 'updatedAt';
+        if (check) {
+            options.enum = value;
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = options;
+                target.schema.add(obj);
+            }
+            else {
+                target.schema.path(key, options);
+            }
+        }
+    };
+}
+exports.VEnum = VEnum;
+function Validator(validator, errorMessage) {
+    return (target, key) => {
+        if (target.schema == undefined) {
+            target.schema = new mongoose_1.Schema();
+        }
+        const check = key != 'createdAt' && key != 'updatedAt';
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = { type: mongoose_1.Schema.Types.Mixed };
+                target.schema.add(obj);
+            }
+            target.schema.path(key).validate(validator, errorMessage);
+        }
+    };
+}
+exports.Validator = Validator;
 function VRefProperty(prop) {
-    if (prop.type != "objectId" /* ObjectId */) {
+    if (prop.type != undefined && prop.type != "objectId" /* ObjectId */) {
         throw new Error("references properties must be of type ObjectId");
     }
     if (prop.ref == undefined) {
         throw new Error("ref is required for reference property");
     }
     return (target, key) => {
-        if (prop.ref.name != target.name) {
-            const reference = (new prop.ref()).getModel();
-            if (reference === undefined) {
-                throw new Error("All references must be collections and subclasses of VMongooseDocument");
-            }
-        }
         if (target.schema == undefined) {
             target.schema = new mongoose_1.Schema();
         }
+        if (prop.ref.name != target.name) {
+            const reference = (new prop.ref());
+            if (reference.getModel() == undefined && reference.getSchema() == undefined) {
+                throw new Error("All references must be collections and subclasses of VMongooseDocument");
+            }
+        }
         const check = key != 'createdAt' && key != 'updatedAt';
-        if (check && target.schema.path(key) === undefined) {
-            const obj = {};
-            obj[key] = prop;
-            obj[key].type = mongoose_1.Schema.Types.ObjectId;
-            obj[key].ref = prop.ref.name;
-            target.schema.add(obj);
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = prop;
+                obj[key].type = mongoose_1.Schema.Types.ObjectId;
+                obj[key].ref = prop.ref.name;
+                target.schema.add(obj);
+            }
+            else {
+                const obj = prop;
+                obj.type = mongoose_1.Schema.Types.ObjectId;
+                obj.ref = prop.ref.name;
+                target.schema.path(key, obj);
+            }
         }
     };
 }
@@ -69,20 +130,23 @@ function VArrayProperty(prop) {
         }
     }
     return (target, key) => {
-        if (prop.ref.name != target.constructor.name) {
-            const reference = (new prop.ref()).getModel();
-            if (reference === undefined) {
-                throw new Error("All references must be collections and subclasses of VMongooseDocument");
-            }
-        }
         if (target.schema == undefined) {
             target.schema = new mongoose_1.Schema();
         }
+        if (prop.ref != undefined && prop.ref.name != target.constructor.name) {
+            const reference = (new prop.ref());
+            if (reference.getModel() == undefined && reference.getSchema() == undefined) {
+                throw new Error("All references must be collections and subclasses of VMongooseDocument");
+            }
+        }
         const check = key != 'createdAt' && key != 'updatedAt';
-        if (check && target.schema.path(key) === undefined) {
-            const obj = {};
-            obj[key] = prop;
-            target.schema.add(buildArraySchemaType(prop));
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                target.schema.add(buildArraySchemaType(prop));
+            }
+            else {
+                target.schema.path(key, buildArraySchemaType(prop));
+            }
         }
     };
 }

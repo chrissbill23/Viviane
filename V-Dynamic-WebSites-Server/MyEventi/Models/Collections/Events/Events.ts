@@ -3,6 +3,6 @@ import {EventData} from "./EventData";
 
 export class Users extends VMongoDBService<EventData> {
     constructor(databaseconnection: Configuration) {
-        super(databaseconnection, new EventData().getModel());
+        super(databaseconnection, EventData);
     }
 }

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class MongoReadQueryObjectInterface {
+class MongoReadQueryBaseStream {
     match() {
         const obj = {};
         for (const key in this) {
-            if (this.hasOwnProperty(key) && this[key] != null && typeof this[key] != 'function') {
+            if (this.hasOwnProperty(key) && this[key] != null && this[key] != null && typeof this[key] != 'function') {
                 Object.defineProperty(obj, key, {
                     value: this[key],
                 });
@@ -87,5 +87,5 @@ class MongoReadQueryObjectInterface {
         this._id = id;
     }
 }
-exports.MongoReadQueryObjectInterface = MongoReadQueryObjectInterface;
-//# sourceMappingURL=MongoReadQueryObjectInterface.js.map
+exports.MongoReadQueryBaseStream = MongoReadQueryBaseStream;
+//# sourceMappingURL=MongoReadQueryBaseStream.js.map

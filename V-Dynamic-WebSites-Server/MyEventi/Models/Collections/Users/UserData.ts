@@ -2,26 +2,27 @@ import {VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB
 import {NewsData} from "../News/NewsData";
 import {EventData} from "../Events/EventData";
 import {
-    VArrayProperty,
-    VGooseTypes, VProperty,
-    VRefProperty, VSchema,
+    Validator,
+    VArrayProperty, VGooseTypes, VProperty, VSchema,
 } from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose";
+import {isEmail} from "../../../../V-Utils/V-Validators/V-Validators";
 
 @VSchema()
 export class UserData extends VDBMongoDocument {
-    @VProperty({type: String})
-    public name?: string;
+    @VProperty({type: String, required: true})
+    public name: string;
 
-    @VProperty({type: String})
-    public surname?: string;
+    @VProperty({type: String, required: true})
+    public surname: string;
 
-    @VProperty({type: String})
-    public nickname?: string;
+    @VProperty({type: String, required: true, unique: true})
+    public nickname: string;
 
-    @VProperty({type: String})
+    @VProperty({type: String, required: true})
     public password?: string;
 
-    @VProperty({type: String})
+    @Validator(isEmail, 'Email is not correct')
+    @VProperty({type: String, required: true})
     public email?: string;
 
     @VProperty({type: Boolean, default: false})

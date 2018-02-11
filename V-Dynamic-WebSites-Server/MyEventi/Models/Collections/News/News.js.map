@@ -1,1 +1,1 @@
-{"version":3,"file":"News.js","sourceRoot":"","sources":["News.ts"],"names":[],"mappings":";;AAAA,sHAAgI;AAChI,yCAAoC;AAEpC,UAAkB,SAAQ,iCAAyB;IAC/C,YAAY,kBAAiC;QACzC,KAAK,CAAC,kBAAkB,EAAE,IAAI,mBAAQ,EAAE,CAAC,QAAQ,EAAE,CAAC,CAAC;IACzD,CAAC;CACJ;AAJD,oBAIC"}
+{"version":3,"file":"News.js","sourceRoot":"","sources":["News.ts"],"names":[],"mappings":";;AAAA,sHAAgI;AAChI,yCAAoC;AAEpC,UAAkB,SAAQ,iCAAyB;IAC/C,YAAY,kBAAiC;QACzC,KAAK,CAAC,kBAAkB,EAAE,mBAAQ,CAAC,CAAC;IACxC,CAAC;CACJ;AAJD,oBAIC"}

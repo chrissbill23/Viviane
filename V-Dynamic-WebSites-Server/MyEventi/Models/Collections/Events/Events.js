@@ -4,7 +4,7 @@ const VMongoDBService_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL
 const EventData_1 = require("./EventData");
 class Users extends VMongoDBService_1.VMongoDBService {
     constructor(databaseconnection) {
-        super(databaseconnection, new EventData_1.EventData().getModel());
+        super(databaseconnection, EventData_1.EventData);
     }
 }
 exports.Users = Users;

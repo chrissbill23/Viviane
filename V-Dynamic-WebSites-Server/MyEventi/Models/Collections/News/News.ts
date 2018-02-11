@@ -3,6 +3,6 @@ import {NewsData} from "./NewsData";
 
 export class News extends VMongoDBService<NewsData> {
     constructor(databaseconnection: Configuration) {
-        super(databaseconnection, new NewsData().getModel());
+        super(databaseconnection, NewsData);
     }
 }
