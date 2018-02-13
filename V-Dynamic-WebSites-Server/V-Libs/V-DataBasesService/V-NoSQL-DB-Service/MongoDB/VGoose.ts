@@ -1,3 +1,8 @@
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
+
 import {model, Schema, SchemaTypeOpts} from "mongoose";
 import * as timestamp from "mongoose-timestamp";
 import {VDBMongoDocument} from "./VDBMongoDocument";
@@ -35,6 +40,33 @@ export function VSchema(timeStamp: boolean = true) {
             }
         }
         return constructor;
+    };
+}
+export function VBeforeSave(parallel: boolean, fn: (next, done) => void) {
+    return (constructor: any) => {
+            if (constructor.prototype.schema == undefined) {
+                constructor.prototype.schema = new Schema();
+            }
+            constructor.prototype.schema.pre('save', parallel, fn);
+            return constructor;
+    };
+}
+export function VIndexedProp(indType: 1 | -1) {
+    return (target: any, key: string) => {
+        if (target.schema == undefined) {
+            target.schema = new Schema();
+        }
+        const check: boolean = key != 'createdAt' && key != 'updatedAt' && key != '_id';
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = {type: Schema.Types.Mixed};
+                target.schema.add(obj);
+            }
+            const obj2: any = {};
+            obj2[key] = indType;
+            target.schema.index(obj2, {sparse: true});
+        }
     };
 }
 export function VProperty(prop: SchemaTypeOpts<any>) {

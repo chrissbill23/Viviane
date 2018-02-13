@@ -1,3 +1,8 @@
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
+
 import { VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument";
 import {
     Validator, VEnum,

@@ -1,8 +1,13 @@
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
+
 import {VNoSQLReadServiceInterface} from "../VNoSQLReadServiceInterface";
 import {VDBReadDataNotFoundException} from "../../../V-Exceptions/V-DBExecptions/V-DB-Read-Exceptions";
 import {VNoSQLWriteUpdateServiceInterface} from "../VNoSQLWriteUpdateServiceInterface";
 import {VDataBaseException} from "../../../V-Exceptions/V-DBExecptions/VDataBaseException";
-import {connect, Model, Mongoose, Schema} from "mongoose";
+import {connect, Model, Mongoose} from "mongoose";
 import {VDBMongoDocument} from "./VDBMongoDocument";
 import {MongoReadQueryBaseStream} from "./MongoReadQueryBaseStream";
 import {MongoWriteUpdateQueryStream} from "./MongoWriteUpdateQueryStream";
@@ -13,6 +18,7 @@ export interface Configuration {
     username?: string;
     password?: string;
     // options?: MongoDB.MongoClientOptions;
+    connect?: boolean;
 }
 export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadServiceInterface,
     VNoSQLWriteUpdateServiceInterface {
@@ -35,6 +41,9 @@ export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadSe
     constructor(dataconnection: Configuration, Class: new () => T ) {
         this.linKtoDB = VMongoDBService.buildConnectionString(dataconnection);
         this.model = new Class().getModel();
+        if (dataconnection.connect != undefined && dataconnection.connect) {
+            this.connect();
+        }
     }
     public connect(): Promise<boolean> {
        return new Promise((resolve, reject) => {
@@ -43,7 +52,7 @@ export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadSe
                this.isconnected = true;
                resolve(true);
            }, (reason) => {
-               reject(new VDataBaseException(reason.toString()));
+               reject(new VDataBaseException(reason, 408));
            });
        });
     }
@@ -56,91 +65,104 @@ export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadSe
                     reject(err);
                 });
             } else {
-                reject("Trying to disconnect from an unconnected database");
+                reject(new VDataBaseException("Trying to disconnect from an unconnected database", 503));
             }
         });
     }
     public findById(id: string): Promise<T> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
             this.model.findOne({_id: id}).then((data: T) => {
                 if (data != null) {
                     resolve(data);
                 } else {
-                    reject(new VDBReadDataNotFoundException("not found"));
+                    reject(new VDBReadDataNotFoundException("Data not found"));
                 }
             }, (err) => {
-                reject(new VDBReadDataNotFoundException(err.toString()));
+                reject(new VDBReadDataNotFoundException(err));
             });
+        }, reject);
         });
+    }
+    public findOne(match: MongoReadQueryBaseStream): Promise<T> {
+        return new Promise((resolve, reject) => {
+            this.checkIfConnectedAndDo(() => {
+                this.model.findOne(match.getMatch()).then((data: T) => {
+                    if (data != null) {
+                        resolve(data);
+                    } else {
+                        reject(new VDBReadDataNotFoundException("Data not found"));
+                    }
+                }, (err) => {
+                    reject(new VDBReadDataNotFoundException(err));
+                });
+            }, reject);
         });
     }
     public findAll(query: MongoReadQueryBaseStream): Promise<T[]> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
                 this.model.aggregate(query.getQuery()).then((datas: T[]) => {
                     resolve(datas);
                 });
-            });
+            }, reject);
         });
     }
     public addOne(query: MongoWriteUpdateQueryStream<T>): Promise<T> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
                 const obj = new this.model(query.getWriteQuery());
                 obj.save().then((data: T) => {
                     resolve(data);
                 }, (err) => {
-                    reject(new VDBReadDataNotFoundException(err.toString()));
+                    reject(new VDBReadDataNotFoundException(err));
                 });
-            });
+            }, reject);
         });
     }
     public addAll(query: MongoWriteUpdateQueryStream<T>): Promise<T[]> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
                 this.model.insertMany(query.getWriteQuery()).then((data: T[]) => {
                     resolve(data);
                 }, (err) => {
-                    reject(new VDBReadDataNotFoundException(err.toString()));
+                    reject(new VDBReadDataNotFoundException(err));
                 });
-            });
+            }, reject);
         });
     }
     public updateOne(query: MongoWriteUpdateQueryStream<T>): Promise<T> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
                 const query2 = query.getUpdateQuery().filter;
                 this.model.updateOne(query2.filter, query2.values, query2.options).then((data: T) => {
                     resolve(data);
                 }, (err) => {
-                    reject(new VDBReadDataNotFoundException(err.toString()));
+                    reject(new VDBReadDataNotFoundException(err));
                 });
-            });
+            }, reject);
         });
     }
     public updateAll(query: MongoWriteUpdateQueryStream<T>): Promise<T[]> {
         return new Promise((resolve, reject) => {
-            return this.checkIfConnectedAndDo(() => {
+            this.checkIfConnectedAndDo(() => {
                 const query2 = query.getUpdateQuery().filter;
                 this.model.updateMany(query2.filter, query2.values, query2.options).then((data: T[]) => {
                     resolve(data);
                 }, (err) => {
-                    reject(new VDBReadDataNotFoundException(err.toString()));
+                    reject(new VDBReadDataNotFoundException(err));
                 });
-            });
+            }, reject);
         });
     }
     public isConnected(): boolean {
         return this.isconnected;
     }
-    private checkIfConnectedAndDo(doaction: any): Promise<any> {
-        return new Promise((resolve, reject) => {
-            if (this.isConnected()) {
+    private checkIfConnectedAndDo(doaction: any, reject: any): void {
+        if (this.isConnected()) {
                 doaction();
-            } else {
-                reject("Could not connect to DataBase");
-            }
-        });
+        } else {
+            reject(new VDataBaseException("Could not connect to DataBase", 408));
+        }
     }
 }

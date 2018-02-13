@@ -1,0 +1,1 @@
+{"version":3,"file":"VAuthenticationException.js","sourceRoot":"","sources":["VAuthenticationException.ts"],"names":[],"mappings":";;AAAA,sDAAiD;AAEjD,8BAAsC,SAAQ,+BAAc;IACxD,YAAY,IAAoB,EAAE,MAAc;QAC5C,KAAK,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;IACxB,CAAC;IACM,mBAAmB;QACtB,MAAM,CAAC,wBAAwB,GAAG,IAAI,CAAC,WAAW,EAAE,CAAC;IACzD,CAAC;CACJ;AAPD,4DAOC"}

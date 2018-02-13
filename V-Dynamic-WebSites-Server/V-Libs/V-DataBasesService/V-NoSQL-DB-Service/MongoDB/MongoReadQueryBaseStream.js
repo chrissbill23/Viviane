@@ -1,6 +1,13 @@
 "use strict";
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 class MongoReadQueryBaseStream {
+    constructor() {
+        this.agregateQuery = [];
+    }
     match() {
         const obj = {};
         for (const key in this) {
@@ -10,10 +17,10 @@ class MongoReadQueryBaseStream {
                 });
             }
         }
-        this.agregateQuery.push({ $match: obj });
+        this.addMatch(obj);
     }
     selectAttributes(...args) {
-        if (args.length > 0) {
+        if (args != undefined && args != null && args.length > 0) {
             const obj = {};
             for (const value of args) {
                 if (this[value] != undefined) {
@@ -75,6 +82,14 @@ class MongoReadQueryBaseStream {
     getQuery() {
         return this.agregateQuery;
     }
+    getMatch() {
+        for (const v of this.agregateQuery) {
+            if (v.$match != undefined) {
+                return v.$match;
+            }
+        }
+        return {};
+    }
     groupBy(groupList) {
         this.agregateQuery.push(groupList);
         return this;
@@ -83,8 +98,27 @@ class MongoReadQueryBaseStream {
         this.agregateQuery.push({ $count: nameOfResult });
         return this;
     }
+    reset() {
+        this.agregateQuery = [];
+        return this;
+    }
+    orCondition(args) {
+        if (args.length > 1) {
+            this.addMatch({ $or: args });
+        }
+        return this;
+    }
     setId(id) {
         this._id = id;
+    }
+    addMatch(obj) {
+        for (const v of this.agregateQuery) {
+            if (v.$match != undefined) {
+                Object.assign(v.$match, obj);
+                return;
+            }
+        }
+        this.agregateQuery.push({ $match: obj });
     }
 }
 exports.MongoReadQueryBaseStream = MongoReadQueryBaseStream;

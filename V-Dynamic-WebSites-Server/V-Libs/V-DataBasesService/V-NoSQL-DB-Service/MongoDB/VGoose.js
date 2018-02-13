@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const timestamp = require("mongoose-timestamp");
@@ -17,6 +21,35 @@ function VSchema(timeStamp = true) {
     };
 }
 exports.VSchema = VSchema;
+function VBeforeSave(parallel, fn) {
+    return (constructor) => {
+        if (constructor.prototype.schema == undefined) {
+            constructor.prototype.schema = new mongoose_1.Schema();
+        }
+        constructor.prototype.schema.pre('save', parallel, fn);
+        return constructor;
+    };
+}
+exports.VBeforeSave = VBeforeSave;
+function VIndexedProp(indType) {
+    return (target, key) => {
+        if (target.schema == undefined) {
+            target.schema = new mongoose_1.Schema();
+        }
+        const check = key != 'createdAt' && key != 'updatedAt' && key != '_id';
+        if (check) {
+            if (target.schema.path(key) === undefined) {
+                const obj = {};
+                obj[key] = { type: mongoose_1.Schema.Types.Mixed };
+                target.schema.add(obj);
+            }
+            const obj2 = {};
+            obj2[key] = indType;
+            target.schema.index(obj2, { sparse: true });
+        }
+    };
+}
+exports.VIndexedProp = VIndexedProp;
 function VProperty(prop) {
     if (prop.type == undefined) {
         throw new Error("Property type is requested");

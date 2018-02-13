@@ -1,3 +1,8 @@
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
+
 import {WriteUpdateObjectQueryInterface} from "../QueryObject/WriteUpdateObjectQueryInterface";
 import {VDBDocumentInterface} from "../V-DataBaseDocument/VDBDocumentInterface";
 

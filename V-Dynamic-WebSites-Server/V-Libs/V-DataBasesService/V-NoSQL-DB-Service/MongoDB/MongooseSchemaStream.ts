@@ -1,3 +1,8 @@
+/**
+ * @author Bile Ezanin Christian Prince Carlos
+ * @version 1.0.0
+ */
+
 import {Schema, SchemaDefinition, Model, model, SchemaTypeOpts} from "mongoose";
 import * as timestamp from "mongoose-timestamp";
 
