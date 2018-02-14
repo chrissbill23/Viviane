@@ -21,8 +21,7 @@ class UsersControllers extends V_Controller_1.VController {
             .then((user) => this.handleSuccess(user, res), (err) => this.handleError(err, res));
     }
     allUsers(req, res) {
-        const query = JSON.parse(Buffer.from(req.query.q, 'base64').toString());
-        UsersControllers.readQuery.reset().setWhereCondition(req.query);
+        UsersControllers.readQuery.reset().setWhereCondition(req.query.where).selectAttributes(req.query.select);
         UsersControllers.dbConnection.findAll(UsersControllers.readQuery)
             .then((user) => this.handleSuccess(user, res), (err) => this.handleError(err, res));
     }
@@ -39,8 +38,10 @@ class UsersControllers extends V_Controller_1.VController {
         }, (err) => this.handleError(new VAuthenticationException_1.VAuthenticationException("User not found", 401), res));
     }
     authenticate(req, res, next) {
-        const token = req.body.token || req.query.token || req.headers['x-access-token'];
-        if (token) {
+        let token = req.body.token != undefined ? req.body.token : null;
+        token = token || req.query.token;
+        token = token != undefined ? token : req.headers.Authentication;
+        if (token && token != undefined) {
             try {
                 const decoded = jwt.verify(token, Config_1.configMyEvent.serverSecret);
                 req.decoded = decoded;

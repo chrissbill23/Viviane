@@ -11,29 +11,21 @@ export abstract class MongoReadQueryBaseStream implements ReadQueryObjectInterfa
     private _id: string;
     private agregateQuery: any[] = [];
     protected match(): void {
-        const obj = {};
+        const obj: any = {};
         for (const key in this) {
-            if (this.hasOwnProperty(key) && this[key] != null && this[key] != null && typeof this[key] != 'function') {
-                    Object.defineProperty(obj, key, {
-                        value: this[key],
-                    });
+            if (this.hasOwnProperty(key) && this[key] != null &&
+                this[key] != undefined && key != 'agregateQuery' &&
+                typeof this[key] != 'function') {
+                    obj[key] = this[key];
             }
         }
         this.addMatch(obj);
     }
-    public selectAttributes(...args: string[]): this {
+    public selectAttributes(args: string[]): this {
         if (args != undefined && args != null && args.length > 0) {
             const obj = {};
             for (const value of args) {
-                if (this[value] != undefined) {
-                        Object.defineProperty(obj, value, {
-                            value: 1,
-                        });
-                } else {
-                    Object.defineProperty(obj, value, {
-                        value: 0,
-                    });
-                }
+                obj[value] = 1;
             }
             this.agregateQuery.push({$project: obj});
         }

@@ -1,0 +1,41 @@
+header {
+    text-align: center;
+    padding-bottom: 3%;
+    margin-bottom: 4%;
+}
+header div {
+    width: 100%;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 2%;
+}
+nav {
+    display: block;
+    padding: 1% 0;
+    background-color: #339933;
+}
+#searchForm {
+    width: 20%;
+    display: inline;
+}
+nav a{
+    margin: 0 3%;
+}
+button {
+    background-color: darkorange;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+}
+input, button {
+    padding: 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.sidemenu {
+    display: inline;
+    width: 35%;
+}
