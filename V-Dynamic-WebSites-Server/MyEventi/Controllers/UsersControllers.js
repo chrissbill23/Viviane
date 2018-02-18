@@ -8,6 +8,9 @@ const jwt = require("jsonwebtoken");
 const Config_1 = require("../Config/Config");
 const VAuthenticationException_1 = require("../../V-Libs/V-Exceptions/VAuthenticationException/VAuthenticationException");
 class UsersControllers extends V_Controller_1.VController {
+    constructor() {
+        super(Config_1.configMyEvent.dataCryption.algorithm, Config_1.configMyEvent.dataCryption.password);
+    }
     getUserInfo(req, res) {
         UsersControllers.dbConnection.findById(req.params.userId)
             .then((user) => this.handleSuccess(user, res), (err) => this.handleError(err, res));
@@ -23,7 +26,7 @@ class UsersControllers extends V_Controller_1.VController {
     allUsers(req, res) {
         UsersControllers.readQuery.reset().setWhereCondition(req.query.where).selectAttributes(req.query.select);
         UsersControllers.dbConnection.findAll(UsersControllers.readQuery)
-            .then((user) => this.handleSuccess(user, res), (err) => this.handleError(err, res));
+            .then((user) => this.handleSuccess(this.encrypt(user), res), (err) => this.handleError(err, res));
     }
     login(req, res) {
         UsersControllers.readQuery.reset()

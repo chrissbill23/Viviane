@@ -1,8 +1,5 @@
 export class VJSONPack {
     private obj: any = {
-        headers: {
-            'Content-Type': 'application/json',
-        },
         data: {},
     };
     constructor(data: any) {

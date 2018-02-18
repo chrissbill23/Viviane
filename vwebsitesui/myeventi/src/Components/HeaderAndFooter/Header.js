@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
-import '../../my_eventi.css';
+import { Link } from 'react-router-dom';
 class Header extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
-            <div>
             <header id = "header">
-                <div>
-                <h1>My Eventi</h1>
-                <p><strong>Scopri e pubblica annunci di eventi nella tua citt&agrave;</strong></p>
+                <div id="logoSite">
+                    <img src="/images/myeventilogo.png" alt="logo di My Eventi: Scopri e pubblica annunci di eventi nella tua citt&agrave;"/>
                 </div>
-            </header>
-            <nav className="navbar">
-                <div className="sidemenu">
-            <a href="" lang="en">Home</a>
-            <a href="">Tipi</a>
-            <a href="">Categorie</a>
-                </div>
-                <form id="searchForm">
+                <nav>
+                    {this.currentState()}
+                    <form id="searchForm">
                         <input type="text" placeholder="Search"/>
-                        <button type="submit">Search</button>
-                </form>
-
-                <div className="sidemenu">
-            <a href="">FAQ</a>
-            <a href="">Sign in</a>
-                </div>
-            </nav>
-            </div>
+                        <button id="searchFormButton" type="submit">
+                            <span className="hidden">Search</span>
+                        </button>
+                    </form>
+                </nav>
+            </header>
         );
+    }
+    currentState() {
+        return (
+            <span>
+            {this.check('HOME', '/')}
+            {this.check('TIPI', '/event/types')}
+            {this.check('CATEGORIE', '/event/categs')}
+            {this.check('FAQ', '/about')}
+            {this.check('SIGN IN', '/user/signin')}
+            </span>
+        );
+    }
+    check(text, link) {
+            if(link ===window.location.pathname) {
+                return <span id="current">{text}</span>
+            }
+        return <Link to={link}>{text}</Link>
     }
 }
 

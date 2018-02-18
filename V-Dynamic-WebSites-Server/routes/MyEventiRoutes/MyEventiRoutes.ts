@@ -13,5 +13,5 @@ myEventiRouter.post('/user/addusers', (req, res) => userController.addNewUsers(r
 myEventiRouter.post('/login', (req, res) => userController.login(req, res));
 
 myEventiRouter.use(convertGetQuery);
-myEventiRouter.use((req, res, next) => userController.authenticate(req, res, next));
+// myEventiRouter.use((req, res, next) => userController.authenticate(req, res, next));
 myEventiRouter.get('/user', (req, res) => userController.allUsers(req, res));

@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "crypto": "^1.0.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.1.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -15,6 +22,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/node": "^9.4.6",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1"
   }

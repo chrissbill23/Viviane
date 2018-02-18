@@ -3,9 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class VJSONPack {
     constructor(data) {
         this.obj = {
-            headers: {
-                'Content-Type': 'application/json',
-            },
             data: {},
         };
         this.obj.data = data;

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./server",
-    "start": "node ./bin/www"
+    "start": "node ./server"
   },
   "devDependencies": {
     "nodemon": "^1.12.1",

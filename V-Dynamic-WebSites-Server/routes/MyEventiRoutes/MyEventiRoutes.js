@@ -13,6 +13,6 @@ exports.myEventiRouter.post('/user/adduser', (req, res) => UsersControllers_1.us
 exports.myEventiRouter.post('/user/addusers', (req, res) => UsersControllers_1.userController.addNewUsers(req, res));
 exports.myEventiRouter.post('/login', (req, res) => UsersControllers_1.userController.login(req, res));
 exports.myEventiRouter.use(VComplexJSONGetQueryMiddleware_1.convertGetQuery);
-exports.myEventiRouter.use((req, res, next) => UsersControllers_1.userController.authenticate(req, res, next));
+// myEventiRouter.use((req, res, next) => userController.authenticate(req, res, next));
 exports.myEventiRouter.get('/user', (req, res) => UsersControllers_1.userController.allUsers(req, res));
 //# sourceMappingURL=MyEventiRoutes.js.map

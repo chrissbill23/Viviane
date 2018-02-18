@@ -1,5 +1,5 @@
 import {app} from "./app";
-const port = normalizePort(process.env.PORT || '3000');
+const port = 3002; // normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = app.listen(port, () => {

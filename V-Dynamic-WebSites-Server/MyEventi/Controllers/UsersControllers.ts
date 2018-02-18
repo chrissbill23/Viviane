@@ -17,6 +17,9 @@ export class UsersControllers extends VController {
     private static TOKEN_TIMELAPSE = 1000 * 60 * 60 * 10; // 10 Hours
     private static dbConnection = new Users();
     private static readQuery = new UsersReadQueryStream();
+    constructor() {
+        super(configMyEvent.dataCryption.algorithm, configMyEvent.dataCryption.password);
+    }
     public getUserInfo(req: Request, res: Response): void {
         UsersControllers.dbConnection.findById(req.params.userId)
             .then((user: UserData) => this.handleSuccess(user, res),
@@ -35,7 +38,7 @@ export class UsersControllers extends VController {
     public allUsers(req: Request, res: Response): void {
         UsersControllers.readQuery.reset().setWhereCondition(req.query.where).selectAttributes(req.query.select);
         UsersControllers.dbConnection.findAll(UsersControllers.readQuery)
-            .then((user: UserData[]) => this.handleSuccess(user, res),
+            .then((user: UserData[]) => this.handleSuccess(this.encrypt(user), res),
                 (err) => this.handleError(err, res));
     }
     public login(req: Request, res: Response): void {
