@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {InputPassword, InputText} from "../../UtilsComponents/Input";
 import {userController} from "../../../Controllers/UsersControllers";
-import 'whatwg-fetch';
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -32,9 +31,9 @@ export class Login extends Component {
     }
     handleSubmit(event) {
         this.controller.login(this.state).then(() => {
-            alert('Cool');
+            this.props.history.push('/user/home');
         }, err => {
-            if (err != '') {
+            if (err !== '') {
                 alert(err);
             } else {
                 alert('errore interno');

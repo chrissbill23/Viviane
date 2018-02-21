@@ -15,8 +15,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
-const TypeEventData_1 = require("./TypeEventData");
-const CategEventData_1 = require("./CategEventData");
+const TypeEventData_1 = require("./Types/TypeEventData");
+const CategEventData_1 = require("./Categ/CategEventData");
 let EventData = class EventData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
         return this.dateAndTimeEv;
@@ -55,8 +55,8 @@ __decorate([
     __metadata("design:type", String)
 ], EventData.prototype, "city", void 0);
 __decorate([
-    VGoose_1.VProperty({ type: String }),
-    __metadata("design:type", String)
+    VGoose_1.VArrayProperty({ type: "string" /* String */ }),
+    __metadata("design:type", Array)
 ], EventData.prototype, "tags", void 0);
 __decorate([
     VGoose_1.VProperty({ type: Boolean, default: false }),
@@ -79,7 +79,14 @@ __decorate([
     __metadata("design:type", Boolean)
 ], EventData.prototype, "foreground", void 0);
 EventData = __decorate([
-    VGoose_1.VSchema()
+    VGoose_1.VSchema(),
+    VGoose_1.VBeforeSave(true, function (next, done) {
+        next();
+        this.tags = this.tags.map((x) => {
+            return x.toUpperCase;
+        });
+        done();
+    })
 ], EventData);
 exports.EventData = EventData;
 //# sourceMappingURL=EventData.js.map

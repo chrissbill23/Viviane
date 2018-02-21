@@ -47,13 +47,17 @@ export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadSe
     }
     public connect(): Promise<boolean> {
        return new Promise((resolve, reject) => {
-           connect(this.linKtoDB).then((value) => {
-               this.mongoose = value;
-               this.isconnected = true;
+           if (!this.isconnected) {
+               connect(this.linKtoDB).then((value) => {
+                   this.mongoose = value;
+                   this.isconnected = true;
+                   resolve(true);
+               }, (reason) => {
+                   reject(new VDataBaseException(reason, 408));
+               });
+           } else {
                resolve(true);
-           }, (reason) => {
-               reject(new VDataBaseException(reason, 408));
-           });
+           }
        });
     }
     public disconnect(): Promise<any> {
@@ -102,9 +106,16 @@ export class VMongoDBService<T extends VDBMongoDocument> implements VNoSQLReadSe
     public findAll(query: MongoReadQueryBaseStream): Promise<T[]> {
         return new Promise((resolve, reject) => {
             this.checkIfConnectedAndDo(() => {
-                this.model.aggregate(query.getQuery()).then((datas: T[]) => {
-                    resolve(datas);
-                });
+                const q = query.getQuery();
+                if (q.length > 0) {
+                    this.model.aggregate(query.getQuery()).then((datas: T[]) => {
+                        resolve(datas);
+                    });
+                } else {
+                    this.model.find({}).then((datas: T[]) => {
+                        resolve(datas);
+                    });
+                }
             }, reject);
         });
     }

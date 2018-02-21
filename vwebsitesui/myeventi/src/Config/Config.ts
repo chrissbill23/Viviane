@@ -5,4 +5,5 @@ export const configMyEvent = {
         algorithm: 'aes-256-ctr',
         password: 'jenesaixkmibreakmesballs',
     },
+    connectedUser: null,
 };

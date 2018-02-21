@@ -106,7 +106,7 @@ export abstract class MongoReadQueryBaseStream implements ReadQueryObjectInterfa
     protected setId(id: string): void {
         this._id = id;
     }
-    private addMatch(obj: any) {
+    protected addMatch(obj: any) {
         for (const v of this.agregateQuery) {
             if (v.$match != undefined ) {
                 Object.assign(v.$match, obj);

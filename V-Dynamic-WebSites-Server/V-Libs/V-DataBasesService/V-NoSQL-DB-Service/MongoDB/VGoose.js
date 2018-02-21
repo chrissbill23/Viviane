@@ -12,10 +12,10 @@ function VSchema(timeStamp = true) {
             if (constructor.prototype.schema == undefined) {
                 constructor.prototype.schema = new mongoose_1.Schema();
             }
-            constructor.prototype.model = mongoose_1.model(constructor.name, constructor.prototype.schema);
             if (timeStamp && constructor.prototype.schema.paths.createdAt) {
                 constructor.prototype.schema.plugin(timestamp);
             }
+            constructor.prototype.model = mongoose_1.model(constructor.name, constructor.prototype.schema);
         }
         return constructor;
     };
@@ -175,9 +175,6 @@ function VArrayProperty(prop) {
         const check = key != 'createdAt' && key != 'updatedAt';
         if (check) {
             if (target.schema.path(key) === undefined) {
-                target.schema.add(buildArraySchemaType(prop));
-            }
-            else {
                 target.schema.path(key, buildArraySchemaType(prop));
             }
         }
@@ -191,9 +188,7 @@ function VMethodProperty(target, propertyKey, descriptor) {
     if (target.schema == undefined) {
         target.schema = new mongoose_1.Schema();
     }
-    if (target.schema.methods[propertyKey] == undefined) {
-        target.schema.methods[propertyKey] = descriptor.value;
-    }
+    target.schema.methods[propertyKey] = descriptor.value;
     return descriptor;
 }
 exports.VMethodProperty = VMethodProperty;
@@ -211,19 +206,19 @@ function VStaticMethodProperty(target, propertyKey, descriptor) {
 }
 exports.VStaticMethodProperty = VStaticMethodProperty;
 function buildArraySchemaType(prop) {
-    const obj = prop;
+    let obj = prop;
     switch (obj.type) {
         case "objectId" /* ObjectId */:
             obj.type = mongoose_1.Schema.Types.ObjectId;
             break;
         case "string" /* String */:
-            obj.type = String;
+            obj = { type: String };
             break;
         case "number" /* Number */:
-            obj.type = Number;
+            obj = { type: Number };
             break;
         case "date" /* Date */:
-            obj.type = Date;
+            obj = { type: Date };
             break;
         case "boolean" /* Boolean */:
             obj.type = Boolean;

@@ -4,7 +4,6 @@
  */
 
 import {MongoReadQueryBaseStream} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/MongoReadQueryBaseStream";
-import {UserData} from "./UserData";
 
 export class UsersReadQueryStream extends MongoReadQueryBaseStream {
     private name: string;

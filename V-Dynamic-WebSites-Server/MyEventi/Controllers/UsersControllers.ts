@@ -44,7 +44,7 @@ export class UsersControllers extends VController {
     public login(req: Request, res: Response): void {
         UsersControllers.readQuery.reset()
             .orCondition([{nickname: req.body.username}, {email: req.body.username}]);
-        UsersControllers.dbConnection.findOne(UsersControllers.readQuery).then((user) => {
+        UsersControllers.dbConnection.findOne(UsersControllers.readQuery).then((user: UserData) => {
             if (user.isAuthenticated(req.body.password)) {
                 this.handleSuccess({token: this.generateToken(user)}, res);
             } else {

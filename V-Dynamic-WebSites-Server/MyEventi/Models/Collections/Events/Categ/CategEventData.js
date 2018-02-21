@@ -13,16 +13,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
-const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
-let TypeEventData = class TypeEventData extends VDBMongoDocument_1.VDBMongoDocument {
+const VGoose_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
+const VDBMongoDocument_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
+let CategEventData = class CategEventData extends VDBMongoDocument_1.VDBMongoDocument {
 };
 __decorate([
     VGoose_1.VProperty({ type: String, uppercase: true }),
     __metadata("design:type", String)
-], TypeEventData.prototype, "nome", void 0);
-TypeEventData = __decorate([
+], CategEventData.prototype, "name", void 0);
+CategEventData = __decorate([
     VGoose_1.VSchema()
-], TypeEventData);
-exports.TypeEventData = TypeEventData;
-//# sourceMappingURL=TypeEventData.js.map
+], CategEventData);
+exports.CategEventData = CategEventData;
+//# sourceMappingURL=CategEventData.js.map

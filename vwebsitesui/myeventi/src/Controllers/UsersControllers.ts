@@ -5,6 +5,7 @@
 import {Request, Response} from "express";
 import {configMyEvent} from "../Config/Config";
 import {VClientController} from "../V-Libs/V-Controller";
+import * as jwt from "jsonwebtoken";
 
 class UsersControllers extends VClientController {
     private token: string;
@@ -15,7 +16,9 @@ class UsersControllers extends VClientController {
         return new Promise((resolve, reject) => {
             this.sendPostRequest(data, '/myeventi/login').then(data => {
                 if (data.success) {
-                    this.token = data.data;
+                    this.token = data.data.token;
+                    const decoded = jwt.verify(this.token, configMyEvent.serverSecret);
+                    this.setConnectedUser(decoded);
                     return resolve();
                 }
                 return reject(data.data);

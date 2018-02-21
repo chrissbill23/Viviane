@@ -7,5 +7,6 @@ exports.configMyEvent = {
         algorithm: 'aes-256-ctr',
         password: 'jenesaixkmibreakmesballs',
     },
+    connectedUser: null,
 };
 //# sourceMappingURL=Config.js.map

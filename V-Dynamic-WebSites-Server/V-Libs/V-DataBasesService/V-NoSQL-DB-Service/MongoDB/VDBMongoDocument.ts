@@ -4,6 +4,7 @@
  */
 
 import {VDBDocumentInterface} from "../../V-DataBaseDocument/VDBDocumentInterface";
+import {VMethodProperty} from "./VGoose";
 
 export abstract class VDBMongoDocument implements VDBDocumentInterface {
     public _id?: string;

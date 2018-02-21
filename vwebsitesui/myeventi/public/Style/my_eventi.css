@@ -7,14 +7,15 @@ header {
     top: 0;
     width: 100%;
     height: 75px;
-    color: white;
-    background-color: #737373;
+    background-color: #330066;
 }
 main {
     clear: both;
     position: fixed;
     top: 75px;
+    bottom: 50px;
     width: 100%;
+    overflow-y: scroll;
 }
 nav {
     padding-top: 2%;
@@ -33,12 +34,13 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 20px;
     padding-bottom: 2%;
     text-align: center;
 }
 #searchForm {
     display: inline;
-    margin-left: 3%;
+    margin-left: 2%;
 }
 #searchForm input {
     border: none;
@@ -52,14 +54,15 @@ footer {
      float: left;
      display: block;
  }
-nav a, #current{
+header nav a, header #current{
     text-decoration: none;
-    color: white;
     padding: 1%;
-    margin: 0 2%;
+    margin: 0 1%;
+    color: #d7730f;
 }
 nav a:hover, #current{
-    border-bottom: 2px solid white;
+    border: none;
+    box-shadow: 0px 0px 30px #d7730f;
 }
 button, input[type="submit"] {
     background-color: #F08A26;
@@ -101,7 +104,7 @@ input, button {
 #formLogin label, #formLogin input:not([type="submit"]),
 #formLogin label span{
     display: block;
-    width: 100%;
+    width: 95%;
 }
 #formLogin label {
     margin: 5% 0;
@@ -113,4 +116,100 @@ input, button {
     width: 50%;
     margin: 0 25%;
 }
+#navUSer {
+    width: 15%;
+    color: white;
+    background-color: #1b4b64;
+}
+#bodyHomeUser, #navUSer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+#bodyHomeUser {
+    left: 15%;
+    padding-left: 5%;
+    width: 80%;
+}
+#bodyHomeUser div {
+    width: 100%;
+}
+#bodyHomeUser h1{
+    text-align: center;
+    width: 90%;
+}
+#navUSer ul {
+  list-style: none;
+    padding-right: 5%;
+}
+#navUSer li {
+    margin: 5% 0;
+}
+#navUSer a, #navUSer span {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 4% 3%;
+}
+#currentNavUser, #navUSer a:hover{
+    border-left: 5px solid #F08A26;
+    background-color: #2c77a0;
+    text-decoration: none;
+}
+#myprofile img{
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+}
+#myprofile p{
+    display: block;
+    text-align: center;
+    font-size: 85%;
+    width: 50%;
+    margin: 0 auto;
+}
 
+#header nav div {
+    display: inline;
+}
+#header #userOptions a, #header #userOptions span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0 1% 0 0;
+    color: white;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#userOptions {
+    margin-left: 10%;
+}
+#header #userOptions a:hover, #header #userOptions #current{
+    border: none;
+    border-radius: 50%;
+    background-color: #d7730f;
+}
+.container img{
+    display: block;
+    width: 80%;
+    height: 500px;
+    margin: 3% auto;
+}
+.container {
+    position: relative;
+
+}
+.captionImgSS {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    color: white;
+    text-align: center;
+    padding: 3%;
+    background: linear-gradient(
+            rgba(20,20,20, 1),
+            rgba(20,20,20, .5));
+}

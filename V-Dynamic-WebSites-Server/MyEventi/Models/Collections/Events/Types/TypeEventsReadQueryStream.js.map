@@ -1,0 +1,1 @@
+{"version":3,"file":"TypeEventsReadQueryStream.js","sourceRoot":"","sources":["TypeEventsReadQueryStream.ts"],"names":[],"mappings":";AAAA;;;GAGG;;AAEH,2IAAsI;AAEtI,+BAAuC,SAAQ,mDAAwB;IAG5D,iBAAiB,CAAC,cAAmB;QACxC,IAAI,CAAC,KAAK,CAAC,cAAc,CAAC,GAAG,CAAC,CAAC;QAC/B,IAAI,CAAC,IAAI,GAAG,cAAc,CAAC,IAAI,CAAC;QAChC,MAAM,CAAC,IAAI,CAAC;IAChB,CAAC;CACJ;AARD,8DAQC"}

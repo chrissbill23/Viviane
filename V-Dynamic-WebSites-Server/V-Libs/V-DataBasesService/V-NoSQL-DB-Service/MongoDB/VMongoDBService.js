@@ -30,13 +30,18 @@ class VMongoDBService {
     }
     connect() {
         return new Promise((resolve, reject) => {
-            mongoose_1.connect(this.linKtoDB).then((value) => {
-                this.mongoose = value;
-                this.isconnected = true;
+            if (!this.isconnected) {
+                mongoose_1.connect(this.linKtoDB).then((value) => {
+                    this.mongoose = value;
+                    this.isconnected = true;
+                    resolve(true);
+                }, (reason) => {
+                    reject(new VDataBaseException_1.VDataBaseException(reason, 408));
+                });
+            }
+            else {
                 resolve(true);
-            }, (reason) => {
-                reject(new VDataBaseException_1.VDataBaseException(reason, 408));
-            });
+            }
         });
     }
     disconnect() {
@@ -88,9 +93,17 @@ class VMongoDBService {
     findAll(query) {
         return new Promise((resolve, reject) => {
             this.checkIfConnectedAndDo(() => {
-                this.model.aggregate(query.getQuery()).then((datas) => {
-                    resolve(datas);
-                });
+                const q = query.getQuery();
+                if (q.length > 0) {
+                    this.model.aggregate(query.getQuery()).then((datas) => {
+                        resolve(datas);
+                    });
+                }
+                else {
+                    this.model.find({}).then((datas) => {
+                        resolve(datas);
+                    });
+                }
             }, reject);
         });
     }

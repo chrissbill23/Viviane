@@ -5,14 +5,21 @@
 
 import {VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument";
 import {
-    VArrayProperty,
+    VArrayProperty, VBeforeSave,
     VGooseTypes, VProperty, VRefProperty,
     VSchema,
 } from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose";
-import {TypeEventData} from "./TypeEventData";
-import {CategEventData} from "./CategEventData";
+import {TypeEventData} from "./Types/TypeEventData";
+import {CategEventData} from "./Categ/CategEventData";
 
 @VSchema()
+@VBeforeSave(true, function(next, done) {
+    next();
+    this.tags = this.tags.map((x) => {
+        return x.toUpperCase;
+    });
+    done();
+})
 export class EventData extends VDBMongoDocument {
     @VProperty({type: Date})
     public dateAndTimeEv: Date;
@@ -38,8 +45,8 @@ export class EventData extends VDBMongoDocument {
     @VProperty({type: String, uppercase: true})
     public city: string;
 
-    @VProperty({type: String})
-    public tags: string;
+    @VArrayProperty({type: VGooseTypes.String})
+    public tags: string[];
 
     @VProperty({type: Boolean, default: false})
     public block: boolean;

@@ -34,10 +34,10 @@ export function VSchema(timeStamp: boolean = true) {
             if (constructor.prototype.schema == undefined) {
                 constructor.prototype.schema = new Schema();
             }
-            constructor.prototype.model = model(constructor.name, constructor.prototype.schema);
             if (timeStamp && constructor.prototype.schema.paths.createdAt) {
                 constructor.prototype.schema.plugin(timestamp);
             }
+            constructor.prototype.model = model(constructor.name, constructor.prototype.schema);
         }
         return constructor;
     };
@@ -187,8 +187,6 @@ export function VArrayProperty<T extends VDBMongoDocument>(prop: ArrayType<T>) {
         const check: boolean = key != 'createdAt' && key != 'updatedAt';
         if (check ) {
             if (target.schema.path(key) === undefined) {
-                target.schema.add(buildArraySchemaType(prop));
-            } else {
                 target.schema.path(key, buildArraySchemaType(prop));
             }
         }
@@ -201,9 +199,7 @@ export function VMethodProperty(target: any, propertyKey: string, descriptor: Pr
     if (target.schema == undefined) {
         target.schema = new Schema();
     }
-    if (target.schema.methods[propertyKey] == undefined) {
-        target.schema.methods[propertyKey] = descriptor.value;
-    }
+    target.schema.methods[propertyKey] = descriptor.value;
     return descriptor;
 }
 export function VStaticMethodProperty<T>(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
@@ -219,12 +215,12 @@ export function VStaticMethodProperty<T>(target: any, propertyKey: string, descr
     return descriptor;
 }
 function buildArraySchemaType<T extends VDBMongoDocument>(prop: ArrayType<T>): SchemaTypeOpts<any> {
-    const obj: any = prop;
+    let obj: any = prop;
     switch (obj.type) {
         case VGooseTypes.ObjectId : obj.type = Schema.Types.ObjectId; break;
-        case VGooseTypes.String : obj.type = String; break;
-        case VGooseTypes.Number : obj.type = Number; break;
-        case VGooseTypes.Date : obj.type = Date; break;
+        case VGooseTypes.String : obj = {type: String}; break;
+        case VGooseTypes.Number : obj = {type: Number}; break;
+        case VGooseTypes.Date : obj = {type: Date}; break;
         case VGooseTypes.Boolean : obj.type = Boolean; break;
         case VGooseTypes.Array : obj.type = Array; break;
         case VGooseTypes.Decimal : obj.type = Schema.Types.Decimal128; break;
