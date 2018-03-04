@@ -87,6 +87,17 @@ class VClientController {
     giveUserSurname() {
         return this.connectedUser.userdata.surname;
     }
+    logOutUser() {
+        return new Promise((resolve, reject) => {
+            try {
+                sessionStorage.removeItem('userconnected');
+                resolve();
+            }
+            catch (err) {
+                reject();
+            }
+        });
+    }
 }
 exports.VClientController = VClientController;
 //# sourceMappingURL=V-Controller.js.map

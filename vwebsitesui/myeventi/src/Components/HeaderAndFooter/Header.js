@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {userController} from "../../Controllers/UsersControllers";
+import homePage from "../../index";
 const styleMessaggi = {
     backgroundImage: "url('/images/message.png')",
 }
@@ -12,6 +13,16 @@ const styleNotification = {
 }
 const styleSettings = {
     backgroundImage: "url('/images/settings.png')",
+}
+const grayBack = {
+    backgroundColor: '#d9d9d9',
+}
+const darkGrayBack = {
+    backgroundColor: '#737373',
+}
+const redBack = {
+    backgroundColor: '#ff3333',
+    color: 'white',
 }
 class Header extends Component {
     constructor(props) {
@@ -64,9 +75,26 @@ class Header extends Component {
         return (
             <div id="userOptions">
                 {this.check(<span className="hidden">Spazio personale</span>, "/user/home", false, styleHome)}
-                {this.check(<span className="hidden">Notifiche</span>,  "/user/notification", true, styleNotification)}
-                {this.check(<span className="hidden">Messaggi</span>,  "/user/mails", true, styleMessaggi)}
-                {this.check(<span className="hidden">Impostazioni account</span>,  "/user/accountsettings", true, styleSettings)}
+                <div className="dropdown" >
+                    <a href = "javascript:void(0)" style={styleNotification}><span className="hidden">Notifiche</span></a>
+                    <div className="dropdown-content" style={redBack}>
+                        <em>Nessuna nuova notifica</em>
+                    </div>
+                </div>
+                <div className="dropdown">
+                    <a href = "javascript:void(0)" style={styleMessaggi}><span className="hidden">Messaggi</span></a>
+                    <div className="dropdown-content" style={darkGrayBack}>
+                        <em>Nessun nuovo messaggio</em>
+                    </div>
+                </div>
+                <div className="dropdown">
+                    <a href = "javascript:void(0)" style={styleSettings}><span className="hidden">Impostazioni</span></a>
+                    <div className="dropdown-content" style={grayBack}>
+                        <a key= '0' href="#">Impostazioni account</a>
+                        <a key= '1'  href="#">Privacy</a>
+                        <Link key= '2' onClick={(e) => this.logout(e)} to="/home">Log out</Link>
+                    </div>
+                </div>
             </div>
         );
         /*
@@ -80,6 +108,15 @@ class Header extends Component {
             </div>
         );
          */
+    }
+    logout(event) {
+        event.preventDefault();
+        this.controller.logOutUser().then((bl) => {
+            alert('Disconessione avvenuta con successo');
+            window.location.href = "/"
+        }, () => {
+            alert('E\' avvenuto un errore interno' );
+        });
     }
 }
 

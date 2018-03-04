@@ -89,4 +89,15 @@ export abstract class VClientController {
     public giveUserSurname() {
         return this.connectedUser.userdata.surname;
     }
+    public logOutUser(): Promise<void> {
+        return new Promise((resolve, reject) => {
+            try {
+                sessionStorage.removeItem('userconnected');
+                resolve();
+            }
+            catch (err) {
+                reject();
+            }
+        });
+    }
 }
