@@ -15,9 +15,34 @@ class EventsController extends V_Controller_1.VController {
     }
     getAllTypesInfo(req, res) {
         EventsController.typeReadQuery.reset();
-        EventsController.typeReadQuery.setWhereCondition({});
+        EventsController.typeReadQuery.setWhereCondition({}).sort({ name: 1 });
         EventsController.dbTypeConnection.findAll(EventsController.typeReadQuery)
             .then((types) => this.handleSuccess(types, res), (err) => this.handleError(new V_DB_Read_Exceptions_1.VDBInternalError(err), res));
+    }
+    getOneEventInfo(req, res) {
+        EventsController.dbConnection.findById(req.params.eventId)
+            .then((event) => this.handleSuccess(event, res), (err) => this.handleError(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err), res));
+    }
+    getAllEventsInfo(req, res) {
+        EventsController.eventReadQuery.reset();
+        EventsController.eventReadQuery.setWhereCondition(req.query.where)
+            .selectAttributes(req.query.select);
+        EventsController.dbConnection.findAll(EventsController.eventReadQuery)
+            .then((event) => this.handleSuccess(event, res), (err) => this.handleError(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err), res));
+    }
+    getParticipantsOfEvents(req, res) {
+        EventsController.eventReadQuery.reset();
+        EventsController.eventReadQuery.setWhereCondition(req.query.where)
+            .selectAttributes(req.query.select).lookupForParticipants('participants');
+        EventsController.dbConnection.findAll(EventsController.eventReadQuery)
+            .then((event) => this.handleSuccess(event, res), (err) => this.handleError(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err), res));
+    }
+    getEventReports(req, res) {
+        EventsController.eventReadQuery.reset();
+        EventsController.eventReadQuery.setWhereCondition({ _id: req.params.eventId })
+            .lookupForReports('reports');
+        EventsController.dbConnection.findAll(EventsController.eventReadQuery)
+            .then((event) => this.handleSuccess(event, res), (err) => this.handleError(new V_DB_Read_Exceptions_1.VDBReadDataNotFoundException(err), res));
     }
 }
 EventsController.dbConnection = new Events_1.Events();

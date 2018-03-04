@@ -9,6 +9,9 @@ class EventsReadQuery extends MongoReadQueryBaseStream_1.MongoReadQueryBaseStrea
     lookupForParticipants(newArrayNameToSaveIn) {
         return this.lookup("UserData", "partecipants", "_id", newArrayNameToSaveIn);
     }
+    lookupForReports(newArrayNameToSaveIn) {
+        return this.lookup('EventData', 'reports', '_id', newArrayNameToSaveIn);
+    }
     setWhereCondition(whereCondition) {
         this.setId(whereCondition._id);
         this.dateAndTimeEv = whereCondition.dateAndTimeEv;

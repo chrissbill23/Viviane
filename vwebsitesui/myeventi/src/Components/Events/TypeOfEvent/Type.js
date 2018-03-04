@@ -18,8 +18,10 @@ class Type extends Component {
     componentDidMount() {
         this.controller.getAllTypes().then((datas) => {
             var current = [];
+            var tim = 5000;
             for (const val of datas.data) {
-                current.push(<ImageSlideShow images = {val.photos} caption = {val.name}/>);
+                current.push(<ImageSlideShow key = {tim} images = {val.photos} caption = {val.name} time = {tim}/>);
+                tim += 1000;
             }
             this.setState({current: <div id="typeslist">{current}</div>});
         });

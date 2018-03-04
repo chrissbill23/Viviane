@@ -1,6 +1,6 @@
 import {Users} from "./Users";
 
-const us = new Users({database: 'prova'});
+const us = new Users();
 us.connect().then((d) => {
     console.log(d);
 });

@@ -17,9 +17,7 @@ const VGoose_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Se
 const VDBMongoDocument_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 let TypeEventData = class TypeEventData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
-        return {
-            name: this.name,
-        };
+        return this;
     }
 };
 __decorate([

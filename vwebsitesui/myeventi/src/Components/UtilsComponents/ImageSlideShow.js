@@ -8,7 +8,7 @@ class ImageSlideShow extends Component {
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(),
-            4000
+            this.props.time
         );
     }
 

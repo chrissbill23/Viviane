@@ -1,4 +1,4 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 const Config_1 = require("../Config/Config");
 const V_Controller_1 = require("../V-Libs/V-Controller");

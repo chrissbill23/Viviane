@@ -12,15 +12,16 @@ import {VDBMongoDocument} from "../../../../../V-Libs/V-DataBasesService/V-NoSQL
 
 @VSchema()
 export class TypeEventData extends VDBMongoDocument {
+
   @VProperty({type: String, uppercase: true, unique: true})
   @VIndexedProp(1)
   public name: string;
+
   @VArrayProperty({type: VGooseTypes.String})
   public photos: string[];
+
   @VMethodProperty
   public getData(): any {
-      return {
-          name: this.name,
-      };
+      return this;
   }
 }

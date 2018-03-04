@@ -51,10 +51,10 @@ export abstract class VClientController {
                         datas.data = data.data;
                         resolve(datas);
                 }, (err) => {
-                    reject();
+                    reject(err);
                 });
             }, (err) => {
-                reject();
+                reject(err);
             });
         });
     }

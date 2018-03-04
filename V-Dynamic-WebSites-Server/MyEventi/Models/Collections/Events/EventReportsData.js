@@ -15,13 +15,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
 const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
-const EventData_1 = require("./EventData");
 let EventReportsData = class EventReportsData extends VDBMongoDocument_1.VDBMongoDocument {
 };
-__decorate([
-    VGoose_1.VRefProperty({ ref: EventData_1.EventData }),
-    __metadata("design:type", String)
-], EventReportsData.prototype, "eventConcerned", void 0);
 __decorate([
     VGoose_1.VProperty({ type: String }),
     __metadata("design:type", String)

@@ -16,11 +16,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const VGoose_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
 const VDBMongoDocument_1 = require("../../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument");
 let CategEventData = class CategEventData extends VDBMongoDocument_1.VDBMongoDocument {
+    getData() {
+        return this;
+    }
 };
 __decorate([
     VGoose_1.VProperty({ type: String, uppercase: true }),
     __metadata("design:type", String)
 ], CategEventData.prototype, "name", void 0);
+__decorate([
+    VGoose_1.VArrayProperty({ type: "string" /* String */ }),
+    __metadata("design:type", Array)
+], CategEventData.prototype, "photos", void 0);
+__decorate([
+    VGoose_1.VMethodProperty,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Object)
+], CategEventData.prototype, "getData", null);
 CategEventData = __decorate([
     VGoose_1.VSchema()
 ], CategEventData);

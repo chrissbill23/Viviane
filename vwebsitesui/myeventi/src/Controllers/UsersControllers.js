@@ -9,7 +9,7 @@ class UsersControllers extends V_Controller_1.VClientController {
     }
     login(data) {
         return new Promise((resolve, reject) => {
-            this.sendPostRequest(data, '/myeventi/login').then(data => {
+            this.sendPostRequest(data, '/myeventi/user/login').then(data => {
                 if (data.success) {
                     this.token = data.data.token;
                     const decoded = jwt.verify(this.token, Config_1.configMyEvent.serverSecret);
@@ -17,10 +17,13 @@ class UsersControllers extends V_Controller_1.VClientController {
                     return resolve();
                 }
                 return reject(data.data);
-            }, () => {
+            }, (err) => {
                 reject('');
             });
         });
+    }
+    signup(data) {
+        return this.sendPostRequest(data, '/myeventi/user/signup');
     }
 }
 exports.userController = new UsersControllers();

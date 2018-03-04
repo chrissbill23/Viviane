@@ -24,6 +24,9 @@ export class EventsReadQuery extends MongoReadQueryBaseStream {
     public lookupForParticipants(newArrayNameToSaveIn: string): this {
         return this.lookup("UserData", "partecipants", "_id", newArrayNameToSaveIn);
     }
+    public lookupForReports(newArrayNameToSaveIn: string): this {
+        return this.lookup('EventData', 'reports', '_id', newArrayNameToSaveIn);
+    }
     public setWhereCondition(whereCondition: any): this {
         this.setId(whereCondition._id);
         this.dateAndTimeEv = whereCondition.dateAndTimeEv;

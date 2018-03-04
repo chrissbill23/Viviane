@@ -17,9 +17,10 @@ const VDBMongoDocument_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQ
 const VGoose_1 = require("../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose");
 const TypeEventData_1 = require("./Types/TypeEventData");
 const CategEventData_1 = require("./Categ/CategEventData");
+const EventReportsData_1 = require("./EventReportsData");
 let EventData = class EventData extends VDBMongoDocument_1.VDBMongoDocument {
     getData() {
-        return this.dateAndTimeEv;
+        return this;
     }
 };
 __decorate([
@@ -78,6 +79,16 @@ __decorate([
     VGoose_1.VProperty({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], EventData.prototype, "foreground", void 0);
+__decorate([
+    VGoose_1.VArrayProperty({ type: "objectId" /* ObjectId */, ref: EventReportsData_1.EventReportsData }),
+    __metadata("design:type", Array)
+], EventData.prototype, "reports", void 0);
+__decorate([
+    VGoose_1.VMethodProperty,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Object)
+], EventData.prototype, "getData", null);
 EventData = __decorate([
     VGoose_1.VSchema(),
     VGoose_1.VBeforeSave(true, function (next, done) {

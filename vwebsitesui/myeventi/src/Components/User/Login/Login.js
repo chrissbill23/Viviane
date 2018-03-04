@@ -1,35 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {InputPassword, InputText} from "../../UtilsComponents/Input";
-import {userController} from "../../../Controllers/UsersControllers";
-export class Login extends Component {
+import FormComponent from "../../UtilsComponents/FormComponent";
+const sideBgLog = {
+    backgroundImage: "url('/images/conc2.jpg')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    left: '0',
+    bottom: '0',
+}
+export class Login extends FormComponent {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             password: '',
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.controller = userController;
     }
     render() {
         return (
-            <div id="formLogin">
-                <h1>Accedi</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <InputText name='username' value = {this.state.username} label = 'Nickname or Email'
+            <div>
+                <div style={sideBgLog}>
+                    <form id="formLogin" onSubmit={this.handleSubmit}>
+                        <h1>Accedi</h1>
+                        <InputText name='username' value = {this.state.username} label = 'Nickname or Email'
                                handleChange = {this.handleChange}/>
-                    <InputPassword name='password' value = {this.state.password} label = 'Password'
+                        <InputPassword name='password' value = {this.state.password} label = 'Password'
                                handleChange = {this.handleChange}/>
-                    <input type="submit" value="Submit" />
-                </form>
+                        <input type="submit" value="Accedi" />
+                        <p>Oppure accedi con</p>
+                        <div id="socialLogin">
+                            <a href="#" className="fa fa-facebook"></a>
+                            <a href="#" className="fa fa-google"></a>
+                            <a href="#" className="fa fa-snapchat-ghost"></a>
+                        </div>
+                        <p>Non sei ancora iscritto? <a href="/user/signup">Iscriviti</a></p>
+                    </form>
+                </div>
             </div>
         );
     }
-    handleChange(name, value) {
-        this.setState({[name]: value});
-    }
-    handleSubmit(event) {
+    handleIt() {
         this.controller.login(this.state).then(() => {
             this.props.history.push('/user/home');
         }, err => {
@@ -39,7 +52,6 @@ export class Login extends Component {
                 alert('errore interno');
             }
         });
-        event.preventDefault();
     }
 }
 export default Login;

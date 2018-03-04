@@ -6,11 +6,12 @@
 import {VDBMongoDocument} from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VDBMongoDocument";
 import {
     VArrayProperty, VBeforeSave,
-    VGooseTypes, VProperty, VRefProperty,
+    VGooseTypes, VMethodProperty, VProperty, VRefProperty,
     VSchema,
 } from "../../../../V-Libs/V-DataBasesService/V-NoSQL-DB-Service/MongoDB/VGoose";
 import {TypeEventData} from "./Types/TypeEventData";
 import {CategEventData} from "./Categ/CategEventData";
+import {EventReportsData} from "./EventReportsData";
 
 @VSchema()
 @VBeforeSave(true, function(next, done) {
@@ -63,7 +64,11 @@ export class EventData extends VDBMongoDocument {
     @VProperty({type: Boolean, default: false})
     public foreground: boolean;
 
+    @VArrayProperty({type: VGooseTypes.ObjectId, ref: EventReportsData})
+    public reports: string[];
+
+    @VMethodProperty
     public getData(): any {
-        return this.dateAndTimeEv;
+        return this;
     }
 }

@@ -69,6 +69,17 @@ class Header extends Component {
                 {this.check(<span className="hidden">Impostazioni account</span>,  "/user/accountsettings", true, styleSettings)}
             </div>
         );
+        /*
+        var listLink = [<a href="#">Op1</a>, <a href="#">Op2</a>, <a href="#">Op3</a>];
+        return (
+            <div id="userOptions">
+                {this.check(<span className="hidden">Spazio personale</span>, "/user/home", false, styleHome)}
+                {this.check(<span className="hidden">Notifiche</span>,  "/user/notification", true, styleNotification)}
+                {this.check(<span className="hidden">Messaggi</span>,  "/user/mails", true, styleMessaggi)}
+                <DropDownMenu listLinks = {listLink} style = {styleSettings} text = {<span className="hidden">Impostazioni account</span>}/>
+            </div>
+        );
+         */
     }
 }
 
