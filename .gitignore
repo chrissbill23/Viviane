@@ -1,4 +1,4 @@
 /V-Dynamic-WebSites-Server/**/*.js
 /**/*.js.map
-/node_modules/
-.idea
+/**/node_modules/
+/**/.idea/
